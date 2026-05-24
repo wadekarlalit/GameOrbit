@@ -1,3 +1,5 @@
+import "../styles/playerCard.scss"
+
 type Props = {
     name: string;
     avatar: string;

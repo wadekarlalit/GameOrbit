@@ -1,5 +1,6 @@
 import Cell from "./Cell";
 import type { Board as BoardType } from "../types/game.types";
+import "../styles/board.scss"
 
 interface BoardProps {
   board: BoardType;
