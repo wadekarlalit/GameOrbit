@@ -1,4 +1,4 @@
-import "../styles/match-result.scss";
+import "../styles/matchResultModal.scss";
 import { useEffect, useState } from "react";
 
 type Props = {

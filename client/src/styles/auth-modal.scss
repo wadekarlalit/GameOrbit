@@ -1,167 +1,287 @@
+/* ================================================= */
+/* TABLET - @media (max-width: 768px) {} */
+/* MOBILE -  @media (max-width: 480px) {} */
+/* ================================================= */
+
 .auth-overlay {
     position: fixed;
     inset: 0;
-    background: rgba(0,0,0,0.6);
-    backdrop-filter: blur(6px);
-
+    background: rgba(0, 0, 0, 0.75);
+    backdrop-filter: blur(10px);
     display: flex;
     align-items: center;
     justify-content: center;
-
+    padding: 20px;
     z-index: 9999;
+
+    @media (max-width: 480px) {
+        padding: 14px;
+        align-items: flex-end;
+    }
 }
 
 .auth-modal {
-    width: 500px;
-    background: #071321;
-
-    border-radius: 18px;
+    width: 100%;
+    max-width: 520px;
+    background: linear-gradient(180deg,
+            #081521 0%,
+            #0b1b2c 100%);
+    border-radius: 24px;
     overflow: hidden;
-
-    border: 1px solid rgba(255,255,255,0.08);
-
+    border: 1px solid rgba(255, 255, 255, 0.08);
     box-shadow:
-        0 20px 50px rgba(0,0,0,0.5);
-
+        0 30px 80px rgba(0, 0, 0, 0.55),
+        0 0 0 1px rgba(255, 255, 255, 0.04);
     animation: popup .25s ease;
+
+    @media (max-width: 768px) {
+        max-width: 95%;
+    }
+
+    @media (max-width: 480px) {
+        max-width: 100%;
+        border-radius: 24px 24px 0 0;
+        animation: mobilePopup .25s ease;
+    }
+}
+
+@media (max-width: 480px) {
+
+    @keyframes mobilePopup {
+        from {
+            transform: translateY(100%);
+            opacity: 0;
+        }
+
+        to {
+            transform: translateY(0);
+            opacity: 1;
+        }
+    }
 }
 
 @keyframes popup {
     from {
-        transform: scale(.9);
+        transform: scale(.9) translateY(20px);
         opacity: 0;
     }
 
     to {
-        transform: scale(1);
+        transform: scale(1) translateY(0);
         opacity: 1;
     }
 }
 
 .auth-header {
-    height: 90px;
-
-    padding: 0 28px;
-
+    min-height: 90px;
+    padding: 22px 28px;
     display: flex;
     align-items: center;
     justify-content: space-between;
+    gap: 16px;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.08);
 
-    border-bottom: 1px solid rgba(255,255,255,0.08);
+    @media (max-width: 768px) {
+        padding: 20px 22px;
+    }
+
+    @media (max-width: 480px) {
+        min-height: auto;
+        padding: 18px;
+    }
 
     h2 {
         color: white;
         font-size: 34px;
+        line-height: 1.2;
         font-weight: 700;
+
+        @media (max-width: 768px) {
+            font-size: 28px;
+        }
+
+        @media (max-width: 480px) {
+            font-size: 22px;
+        }
     }
 
     button {
-        background: transparent;
+        width: 42px;
+        height: 42px;
         border: none;
+        border-radius: 12px;
+        background: rgba(255, 255, 255, 0.06);
+        display: flex;
+        align-items: center;
+        justify-content: center;
         color: white;
         cursor: pointer;
+        transition: .2s;
+        flex-shrink: 0;
+
+        @media (max-width: 480px) {
+            width: 38px;
+            height: 38px;
+        }
+
+        &:hover {
+            background: rgba(255, 255, 255, 0.12);
+            transform: rotate(90deg);
+        }
     }
 }
 
 .auth-body {
     padding: 30px;
-
     display: flex;
     flex-direction: column;
     gap: 22px;
+
+    @media (max-width: 768px) {
+        padding: 24px;
+    }
+
+    @media (max-width: 480px) {
+        padding: 18px;
+        gap: 18px;
+    }
 }
 
 .input-group {
-    height: 64px;
-
-    border: 1px solid rgba(255,255,255,0.15);
-
-    border-radius: 12px;
-
+    min-height: 64px;
+    border: 1px solid rgba(255, 255, 255, 0.12);
+    border-radius: 16px;
     display: flex;
     align-items: center;
-
     padding: 0 18px;
+    gap: 14px;
+    background: rgba(255, 255, 255, 0.03);
+    transition: .2s;
 
-    gap: 12px;
+    @media (max-width: 480px) {
+        min-height: 56px;
+        border-radius: 14px;
+        padding: 0 14px;
+    }
 
-    background: #06101c;
+    &:focus-within {
+        border-color: #19d3ae;
+        box-shadow: 0 0 0 4px rgba(25, 211, 174, 0.12);
+    }
 
     svg {
-        color: #00d4b1;
+        color: #19d3ae;
+        flex-shrink: 0;
     }
 
     input {
         flex: 1;
-        background: transparent;
+        background: transparent !important;
         border: none;
         outline: none;
-
         color: white;
-        font-size: 18px;
+        font-size: 17px;
+
+        @media (max-width: 480px) {
+            font-size: 15px;
+        }
+
+        &::placeholder {
+            color: #7f8b97;
+        }
     }
 }
 
 .main-btn {
     height: 60px;
-
     border: none;
-    border-radius: 14px;
-
-    background: #1bb89d;
-
+    border-radius: 16px;
+    background: linear-gradient(135deg,
+            #19d3ae,
+            #0fa4ff);
     color: white;
-    font-size: 22px;
+    font-size: 20px;
     font-weight: 700;
-
     cursor: pointer;
-
     transition: .2s;
+    box-shadow:
+        0 10px 30px rgba(15, 164, 255, 0.25);
+
+    @media (max-width: 768px) {
+        font-size: 18px;
+    }
+
+    @media (max-width: 480px) {
+        height: 54px;
+        font-size: 17px;
+        border-radius: 14px;
+    }
 
     &:hover {
         transform: translateY(-2px);
+    }
+
+    &:active {
+        transform: scale(.98);
     }
 }
 
 .auth-links {
     display: flex;
-    flex-direction: column;
-    gap: 12px;
+    justify-content: space-between;
+    gap: 14px;
+    flex-wrap: wrap;
+
+    @media (max-width: 480px) {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 10px;
+    }
 
     button {
         background: transparent;
         border: none;
-
-        color: #00bfff;
-
-        text-align: left;
-
+        color: #26c3ff;
+        font-size: 14px;
+        font-weight: 500;
         cursor: pointer;
+        transition: .2s;
+
+        @media (max-width: 480px) {
+            font-size: 13px;
+        }
+
+        &:hover {
+            color: white;
+        }
     }
 }
 
 .divider {
     position: relative;
     text-align: center;
-
     color: #7d8590;
+    font-size: 14px;
 
-    &::before,
-    &::after {
-        content: "";
-        position: absolute;
-        top: 50%;
-        width: 42%;
-        height: 1px;
-        background: rgba(255,255,255,0.12);
+    span {
+        background: #0b1b2c;
+        padding: 0 14px;
+        position: relative;
+        z-index: 2;
+
+        @media (max-width: 480px) {
+            font-size: 13px;
+        }
     }
 
     &::before {
+        content: "";
+        position: absolute;
+        top: 50%;
         left: 0;
-    }
-
-    &::after {
-        right: 0;
+        width: 100%;
+        height: 1px;
+        background: rgba(255, 255, 255, 0.1);
     }
 }
 
@@ -171,54 +291,58 @@
     gap: 16px;
 
     button {
-        height: 58px;
-
-        border-radius: 14px;
-
-        border: 1px solid rgba(255,255,255,0.08);
-
-        background: #24364b;
-
+        min-height: 58px;
+        border-radius: 16px;
+        border: 1px solid rgba(255, 255, 255, 0.08);
+        background: rgba(255, 255, 255, 0.05);
         color: white;
-
-        font-size: 18px;
+        font-size: 16px;
         font-weight: 600;
-
         display: flex;
         align-items: center;
         justify-content: center;
         gap: 14px;
-
+        padding: 0 16px;
         cursor: pointer;
-
         transition: .2s;
 
+        @media (max-width: 480px) {
+            min-height: 54px;
+            font-size: 14px;
+            border-radius: 14px;
+        }
+
         &:hover {
-            background: #30455d;
+            background: rgba(255, 255, 255, 0.09);
+            transform: translateY(-2px);
+        }
+
+        svg {
+            font-size: 22px;
+            flex-shrink: 0;
         }
     }
 }
 
-@media(max-width: 600px) {
-
-    .auth-modal {
-        width: 92%;
-    }
-
-    .auth-header h2 {
-        font-size: 28px;
-    }
-}
-
 .error-text {
-    color: #ff5b5b;
+    color: #ff6b6b;
+
     font-size: 13px;
-    margin-top: -10px;
-    margin-left: 4px;
     font-weight: 500;
 
+    margin-top: -12px;
+    margin-left: 4px;
+
     &.center {
-        text-align: left;
-        margin-bottom: 0px;
+        text-align: center;
+        margin: -6px 0 0;
     }
 }
+
+
+// AuthModal.tsx - auth-modal.scss
+// Dashboard.tsx - dashboard.scss
+// Sidebar.tsx - sidebar.scss
+// Header.tsx - header.scss
+// GameCard.tsx - gameCard.scss
+// GameModeModal.tsx - gameModeModal.scss

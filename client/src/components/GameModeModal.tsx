@@ -76,11 +76,8 @@ function GameModeModal({
                             <p>Find random opponent</p>
                         </div>
                     </button>
-
                 </div>
-
             </div>
-
         </div>
     );
 }

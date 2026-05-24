@@ -60,13 +60,16 @@ function Sidebar({ isOpen, onClose }: Props) {
 
                             <div className={`dropdown ${open ? "show" : ""}`}>
                                 <ul>
-                                    <li><User /> My Account</li>
-                                    <li><UserCircle /> My Profile</li>
-                                    <li><Image /> Change Avatar</li>
+                                    <li onClick={onClose}><User /> My Account</li>
+                                    <li onClick={onClose}><UserCircle /> My Profile</li>
+                                    <li onClick={onClose}><Image /> Change Avatar</li>
 
                                     <li
                                         className="danger"
-                                        onClick={logout}
+                                        onClick={() => {
+                                            logout();
+                                            onClose();
+                                        }}
                                     >
                                         <LogOut /> Log Out
                                     </li>
@@ -108,8 +111,8 @@ function Sidebar({ isOpen, onClose }: Props) {
                 <div className="section">
                     <p className="section-title">Play online</p>
                     <ul>
-                        <li>👥 Play with a friend</li>
-                        <li>🤖 Play vs robot</li>
+                        <li onClick={onClose}>👥 Play with a friend</li>
+                        <li onClick={onClose}>🤖 Play vs robot</li>
                     </ul>
                 </div>
 
@@ -119,13 +122,13 @@ function Sidebar({ isOpen, onClose }: Props) {
                 <div className="section">
                     <p className="section-title">Games</p>
                     <ul>
-                        <li>Battleship</li>
-                        <li>Tic Tac Toe</li>
-                        <li>Connect 4</li>
-                        <li>Gomoku</li>
-                        <li>Chess</li>
-                        <li>Checkers</li>
-                        <li>Game guides</li>
+                        <li onClick={onClose}>Tic Tac Toe</li>
+                        <li onClick={onClose}>Battleship</li>
+                        <li onClick={onClose}>Connect 4</li>
+                        <li onClick={onClose}>Gomoku</li>
+                        <li onClick={onClose}>Chess</li>
+                        <li onClick={onClose}>Checkers</li>
+                        <li onClick={onClose}>Game guides</li>
                     </ul>
                 </div>
 
