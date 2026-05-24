@@ -1,0 +1,46 @@
+.header {
+  height: 60px;
+  background: #2f3e4d;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0 20px;
+  color: white;
+  display: none;
+
+  .hamburger {
+    font-size: 22px;
+    cursor: pointer;
+    background: transparent;
+    border: none;
+    color: white;
+  }
+
+  .right {
+    display: flex;
+    gap: 20px;
+
+    .icon {
+      font-size: 20px;
+      cursor: pointer;
+      opacity: 0.8;
+
+      &:hover {
+        opacity: 1;
+      }
+    }
+  }
+}
+
+// .hamburger {
+//   display: none;
+// }
+
+@media (max-width: 768px) {
+//   .hamburger {
+//     display: block;
+//   }
+  .header {
+    display: flex;
+  }
+}

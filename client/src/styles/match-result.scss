@@ -1,0 +1,269 @@
+.result-overlay {
+    position: fixed;
+    inset: 0;
+    background: rgba(2, 8, 20, 0.88);
+    backdrop-filter: blur(8px);
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    z-index: 9999;
+
+    animation: fadeIn 0.4s ease;
+}
+
+.result-modal {
+    width: 500px;
+    background: linear-gradient(
+        180deg,
+        #132238,
+        #0b1628
+    );
+
+    border-radius: 24px;
+
+    padding: 40px;
+
+    border: 1px solid rgba(255,255,255,0.08);
+
+    box-shadow:
+        0 0 40px rgba(0,0,0,0.4),
+        0 0 80px rgba(32,214,199,0.08);
+
+    text-align: center;
+
+    animation: popupScale 0.5s ease;
+}
+
+.victory-text {
+    font-size: 52px;
+    font-weight: 900;
+
+    color: #ff4d8d;
+
+    margin-bottom: 12px;
+
+    animation: glowText 1.2s infinite alternate;
+}
+
+.winner-name {
+    color: #d9e3f0;
+    font-size: 22px;
+
+    margin-bottom: 40px;
+}
+
+.level-section {
+    margin-bottom: 40px;
+}
+
+.level-header {
+    display: flex;
+    justify-content: space-between;
+
+    margin-bottom: 12px;
+
+    color: white;
+    font-weight: 700;
+}
+
+.xp-bar {
+    position: relative;
+
+    height: 18px;
+    border-radius: 999px;
+
+    background: rgba(255,255,255,0.08);
+
+    overflow: hidden;
+}
+
+.xp-fill {
+    height: 100%;
+
+    background: linear-gradient(
+        90deg,
+        #20d6c7,
+        #35efc0
+    );
+
+    border-radius: 999px;
+
+    transition: width 0.3s ease;
+}
+
+.xp-circle {
+    position: absolute;
+    top: 50%;
+
+    transform: translateY(-50%);
+
+    width: 36px;
+    height: 36px;
+
+    border-radius: 50%;
+
+    background: #20d6c7;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    color: #071120;
+    font-weight: 900;
+
+    box-shadow: 0 0 20px rgba(32,214,199,0.5);
+
+    transition: left 0.3s ease;
+}
+
+.coins-reward {
+    font-size: 34px;
+    font-weight: 800;
+
+    color: #ffd166;
+
+    margin-bottom: 36px;
+
+    animation: coinPop 0.7s ease infinite alternate;
+}
+
+.result-buttons {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+}
+
+.play-btn,
+.leave-btn {
+    border: none;
+    outline: none;
+
+    padding: 18px;
+
+    border-radius: 16px;
+
+    font-size: 18px;
+    font-weight: 700;
+
+    cursor: pointer;
+
+    transition: 0.25s;
+}
+
+.play-btn {
+    background: linear-gradient(
+        90deg,
+        #20d6c7,
+        #24e1ae
+    );
+
+    color: #071120;
+}
+
+.play-btn:hover {
+    transform: translateY(-2px);
+}
+
+.leave-btn {
+    background: rgba(255,255,255,0.08);
+
+    color: white;
+}
+
+.leave-btn:hover {
+    background: rgba(255,255,255,0.12);
+}
+
+@keyframes popupScale {
+
+    0% {
+        opacity: 0;
+        transform: scale(0.7);
+    }
+
+    100% {
+        opacity: 1;
+        transform: scale(1);
+    }
+}
+
+@keyframes fadeIn {
+
+    from {
+        opacity: 0;
+    }
+
+    to {
+        opacity: 1;
+    }
+}
+
+@keyframes glowText {
+
+    from {
+        text-shadow: 0 0 10px rgba(255,77,141,0.4);
+    }
+
+    to {
+        text-shadow:
+            0 0 20px rgba(255,77,141,0.8),
+            0 0 40px rgba(255,77,141,0.5);
+    }
+}
+
+@keyframes coinPop {
+
+    from {
+        transform: scale(1);
+    }
+
+    to {
+        transform: scale(1.08);
+    }
+}
+
+.victory-box {
+    margin-top: 25px;
+}
+
+.level-progress {
+    width: 260px;
+    height: 10px;
+    background: rgba(255,255,255,0.1);
+    border-radius: 20px;
+    margin: 20px auto;
+    position: relative;
+}
+
+.progress-fill {
+    width: 70%;
+    height: 100%;
+    border-radius: 20px;
+    background: linear-gradient(
+        90deg,
+        #00f5d4,
+        #00bbf9
+    );
+}
+
+.level-circle {
+    width: 42px;
+    height: 42px;
+    border-radius: 50%;
+    background: #00f5d4;
+    color: black;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    font-weight: bold;
+
+    position: absolute;
+    right: 25%;
+    top: 50%;
+
+    transform: translateY(-50%);
+}

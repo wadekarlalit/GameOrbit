@@ -1,0 +1,203 @@
+.mode-overlay {
+    position: fixed;
+    inset: 0;
+    background: rgba(3, 10, 20, 0.75);
+    backdrop-filter: blur(6px);
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    z-index: 9999;
+
+    animation: fadeIn 0.25s ease;
+}
+
+.mode-modal {
+    width: 440px;
+    background: #1f2d43;
+
+    border-radius: 22px;
+
+    overflow: hidden;
+
+    border: 1px solid rgba(255, 255, 255, 0.08);
+
+    box-shadow:
+        0 25px 60px rgba(0, 0, 0, 0.55);
+
+    animation: popup 0.3s ease;
+}
+
+.mode-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0px 24px;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+    background: #22324a;
+
+    h2 {
+        font-family: "Concert One", sans-serif;
+        color: white;
+        font-size: 30px;
+        font-weight: 600;
+    }
+
+    button {
+        width: 42px;
+        height: 42px;
+        border: none;
+        border-radius: 12px;
+        background: transparent;
+        color: #d8e1ec;
+        cursor: pointer;
+        transition: 0.2s;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+
+        &:hover {
+            background: rgba(255, 255, 255, 0.08);
+            transform: rotate(90deg);
+        }
+    }
+}
+
+.mode-body {
+    padding: 24px;
+    display: flex;
+    flex-direction: column;
+    gap: 18px;
+}
+
+.mode-card {
+    border: none;
+    border-radius: 18px;
+    padding: 18px 20px;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    gap: 18px;
+    transition: 0.25s ease;
+    position: relative;
+    overflow: hidden;
+    background: #2c3f58;
+    color: white;
+    text-align: left;
+
+    &:hover {
+        transform: translateY(-4px) scale(1.02);
+        box-shadow:
+            0 12px 24px rgba(0, 0, 0, 0.35);
+    }
+
+    .icon {
+        min-width: 64px;
+        height: 64px;
+        border-radius: 16px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        background: rgba(255, 255, 255, 0.08);
+    }
+
+    .content {
+        padding: 0;
+
+        h3 {
+            font-family: "Concert One", sans-serif;
+            font-size: 22px;
+            font-weight: 400;
+            margin: 0px;
+        }
+
+        p {
+            font-family: "Concert One", sans-serif;
+            color: #b9c7d8;
+            font-size: 15px;
+            margin: 0;
+            margin-top: 6px;
+        }
+    }
+}
+
+.mode-card.bot {
+    background:
+        linear-gradient(135deg,
+            #2d4d5d,
+            #2b3d59);
+
+    .icon {
+        color: #5fe3ff;
+    }
+}
+
+.mode-card.friend {
+    background:
+        linear-gradient(135deg,
+            #3d4767,
+            #2c3553);
+
+    .icon {
+        color: #7b8cff;
+    }
+}
+
+.mode-card.online {
+    background:
+        linear-gradient(135deg,
+            #1f5c58,
+            #22405b);
+
+    .icon {
+        color: #37ffd7;
+    }
+}
+
+@keyframes popup {
+    from {
+        opacity: 0;
+        transform: scale(0.85);
+    }
+
+    to {
+        opacity: 1;
+        transform: scale(1);
+    }
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+    }
+
+    to {
+        opacity: 1;
+    }
+}
+
+@media (max-width: 500px) {
+
+    .mode-modal {
+        width: 92%;
+    }
+
+    .mode-header h2 {
+        font-size: 24px;
+    }
+
+    .mode-card {
+
+        padding: 16px;
+
+        .icon {
+            min-width: 56px;
+            height: 56px;
+        }
+
+        .content h3 {
+            font-size: 18px;
+        }
+    }
+}
