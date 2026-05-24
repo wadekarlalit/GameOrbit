@@ -6,8 +6,9 @@
   display: flex;
   flex-direction: column;
   padding: 16px;
-  font-family: "Segoe UI", sans-serif;
-  overflow-y: auto;   // ✅ scroll enable
+  // font-family: "Segoe UI", sans-serif;
+  font-family: "Concert One", sans-serif;
+  overflow-y: auto; // ✅ scroll enable
   overflow-x: hidden;
 
   scrollbar-width: thin;
@@ -27,7 +28,7 @@
   left: 0;
   width: 100%;
   height: 100%;
-  background: rgba(0,0,0,0.5);
+  background: rgba(0, 0, 0, 0.5);
   z-index: 1000;
 }
 
@@ -50,14 +51,12 @@
 
 /* 🔥 ON HOVER → show scrollbar */
 .sidebar:hover::-webkit-scrollbar-thumb {
-//   background: #3b4a5a;  // theme match
+  //   background: #3b4a5a;  // theme match
   // background: red;  // theme match
 
-  background: linear-gradient(
-    180deg,
-    #4b5c6f,
-    #2c3a4b
-  );
+  background: linear-gradient(180deg,
+      #4b5c6f,
+      #2c3a4b);
 
 }
 
@@ -92,13 +91,16 @@
   .user-info {
     h3 {
       margin: 0;
-      font-size: 16px;
+      font-size: 18px;
+      font-weight: 400;
+      letter-spacing: 0.5px;
       color: #fff;
     }
 
     p {
       margin: 0;
-      font-size: 12px;
+      font-size: 14px;
+      letter-spacing: 0.5px;
       color: #9fb3c8;
     }
   }
@@ -150,6 +152,7 @@
     &.active {
       background: #3b4a5a;
       color: white;
+      letter-spacing: 0.5px;
     }
   }
 }
@@ -188,7 +191,8 @@
   position: relative; // 🔥 required
 
   &:hover {
-    background: #3b4a5a;;
+    background: #3b4a5a;
+    ;
     padding: 1px 10px 1px 2px;
     border-radius: 8px;
     cursor: pointer;
@@ -202,14 +206,14 @@
   width: 200px;
   background: #2c3a4b;
   border-radius: 10px;
-  box-shadow: 0 10px 25px rgba(0,0,0,0.3);
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.3);
 
   opacity: 0;
   transform: translateY(-10px) scale(0.95);
   pointer-events: none;
   transition: all 0.25s ease;
 
-   backdrop-filter: blur(10px);
+  backdrop-filter: blur(10px);
 
   ul {
     list-style: none;
@@ -277,139 +281,138 @@
 }
 
 .login-btn {
-    background: #3a4c63;
-    border: 1px solid rgba(255,255,255,0.1);
-    color: white;
-    padding: 10px 22px;
-    border-radius: 10px;
-    cursor: pointer;
-    font-size: 16px;
-    transition: 0.3s;
+  background: #3a4c63;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  color: white;
+  padding: 10px 22px;
+  border-radius: 10px;
+  cursor: pointer;
+  font-size: 16px;
+  transition: 0.3s;
 
-    &:hover {
-        background: #4a5e78;
-    }
+  &:hover {
+    background: #4a5e78;
+  }
 }
 
 .login-modal-overlay {
-    position: fixed;
-    inset: 0;
-    background: rgba(0,0,0,0.65);
-    backdrop-filter: blur(5px);
+  position: fixed;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.65);
+  backdrop-filter: blur(5px);
 
-    display: flex;
-    justify-content: center;
-    align-items: center;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 
-    z-index: 9999;
+  z-index: 9999;
 }
 
 .login-modal {
-    width: 450px;
-    background: #071525;
-    border-radius: 18px;
-    padding: 35px;
+  width: 450px;
+  background: #071525;
+  border-radius: 18px;
+  padding: 35px;
 
-    position: relative;
+  position: relative;
 
-    border: 1px solid rgba(255,255,255,0.08);
+  border: 1px solid rgba(255, 255, 255, 0.08);
 
-    box-shadow:
-        0 0 30px rgba(0,0,0,0.5),
-        0 0 80px rgba(0,255,255,0.05);
+  box-shadow:
+    0 0 30px rgba(0, 0, 0, 0.5),
+    0 0 80px rgba(0, 255, 255, 0.05);
 
-    animation: popup 0.25s ease;
+  animation: popup 0.25s ease;
 }
 
 @keyframes popup {
-    from {
-        transform: scale(0.9);
-        opacity: 0;
-    }
+  from {
+    transform: scale(0.9);
+    opacity: 0;
+  }
 
-    to {
-        transform: scale(1);
-        opacity: 1;
-    }
+  to {
+    transform: scale(1);
+    opacity: 1;
+  }
 }
 
 .close-btn {
-    position: absolute;
-    top: 15px;
-    right: 15px;
+  position: absolute;
+  top: 15px;
+  right: 15px;
 
-    background: transparent;
-    border: none;
-    color: white;
-    font-size: 22px;
-    cursor: pointer;
+  background: transparent;
+  border: none;
+  color: white;
+  font-size: 22px;
+  cursor: pointer;
 }
 
 .login-modal h1 {
-    color: white;
-    margin-bottom: 10px;
+  color: white;
+  margin-bottom: 10px;
 }
 
 .sub-text {
-    color: #9ca9b8;
-    margin-bottom: 25px;
+  color: #9ca9b8;
+  margin-bottom: 25px;
 }
 
 .login-input {
-    width: 100%;
-    padding: 16px;
-    border-radius: 12px;
-    border: 1px solid #00d4c7;
-    background: #081a2e;
-    color: white;
-    outline: none;
-    font-size: 16px;
-    margin-bottom: 20px;
+  width: 100%;
+  padding: 16px;
+  border-radius: 12px;
+  border: 1px solid #00d4c7;
+  background: #081a2e;
+  color: white;
+  outline: none;
+  font-size: 16px;
+  margin-bottom: 20px;
 }
 
 .main-login-btn,
 .guest-btn,
 .google-btn {
-    width: 100%;
-    border: none;
-    border-radius: 14px;
-    padding: 15px;
-    font-size: 16px;
-    cursor: pointer;
-    transition: 0.3s;
-    margin-bottom: 15px;
+  width: 100%;
+  border: none;
+  border-radius: 14px;
+  padding: 15px;
+  font-size: 16px;
+  cursor: pointer;
+  transition: 0.3s;
+  margin-bottom: 15px;
 }
 
 .main-login-btn {
-    background: #16b8a6;
-    color: white;
+  background: #16b8a6;
+  color: white;
 
-    &:hover {
-        background: #1fd6c1;
-    }
+  &:hover {
+    background: #1fd6c1;
+  }
 }
 
 .guest-btn {
-    background: #24364a;
-    color: white;
+  background: #24364a;
+  color: white;
 
-    &:hover {
-        background: #31465f;
-    }
+  &:hover {
+    background: #31465f;
+  }
 }
 
 .google-btn {
-    background: #324960;
-    color: white;
+  background: #324960;
+  color: white;
 
-    &:hover {
-        background: #405b78;
-    }
+  &:hover {
+    background: #405b78;
+  }
 }
 
 .divider-text {
-    text-align: center;
-    color: #7c8da1;
-    margin: 18px 0;
+  text-align: center;
+  color: #7c8da1;
+  margin: 18px 0;
 }
-
