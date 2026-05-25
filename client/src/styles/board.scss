@@ -1,105 +1,81 @@
+/* ================================================= */
+/* TABLET - @media (max-width: 768px) {} */
+/* MOBILE -  @media (max-width: 480px) {} */
+/* ================================================= */
+
 /* ================= BOARD ================= */
-
 .modern-board {
-    display: grid !important;
-
-    grid-template-columns:
-        repeat(3, 180px);
-
-    gap: 18px;
-
+    display: grid;
+    grid-template-columns: repeat(3, 180px) !important;
+    gap: 18px !important;
     justify-content: center;
     align-items: center;
 
     @media (max-width: 1024px) {
-
         grid-template-columns:
-            repeat(3, 150px);
-
-        gap: 16px;
+            repeat(3, 150px) !important;
+        gap: 16px !important;
     }
 
     @media (max-width: 768px) {
-
         grid-template-columns:
-            repeat(3, 120px);
-
-        gap: 14px;
+            repeat(3, 120px) !important;
+        gap: 14px !important;
     }
 
     @media (max-width: 480px) {
-
         grid-template-columns:
-            repeat(3, 95px);
-
-        gap: 10px;
+            repeat(3, 104px) !important;
+        gap: 10px !important;
     }
 }
 
 /* ================= CELL ================= */
 
 .modern-cell {
-    width: 180px;
-    height: 180px;
-
+    width: 180px !important;
+    height: 180px !important;
     background:
         linear-gradient(
             180deg,
             rgba(255,255,255,0.05),
             rgba(255,255,255,0.02)
         );
-
     border: 2px solid rgba(255,255,255,0.08);
-
-    border-radius: 30px;
-
+    border-radius: 28px;
     display: flex;
+    justify-content: center; 
     align-items: center;
-    justify-content: center;
-
     cursor: pointer;
-
     position: relative;
-
     overflow: hidden;
-
     transition: all 0.25s ease;
-
     backdrop-filter: blur(12px);
 
     @media (max-width: 1024px) {
-
-        width: 150px;
-        height: 150px;
+        width: 150px !important;
+        height: 150px !important;
     }
 
     @media (max-width: 768px) {
-
-        width: 120px;
-        height: 120px;
-
+        width: 120px !important;
+        height: 120px !important;
         border-radius: 24px;
     }
 
     @media (max-width: 480px) {
-
-        width: 95px;
-        height: 95px;
-
+        width: 95px !important;
+        height: 95px !important;
         border-radius: 20px;
     }
 }
 
 .modern-cell:hover {
-
     transform: scale(1.04);
-
     background:
         rgba(255,255,255,0.07);
-
     border-color:
         rgba(255,255,255,0.15);
-
     box-shadow:
         0 0 24px rgba(255,255,255,0.08),
         inset 0 0 12px rgba(255,255,255,0.04);
@@ -110,23 +86,19 @@
 .x-symbol {
     width: 150px;
     height: 150px;
-
     position: relative;
 
     @media (max-width: 1024px) {
-
         width: 125px;
         height: 125px;
     }
 
     @media (max-width: 768px) {
-
         width: 95px;
         height: 95px;
     }
 
     @media (max-width: 480px) {
-
         width: 76px;
         height: 76px;
     }
@@ -134,56 +106,45 @@
 
 .x-symbol span {
     position: absolute;
-
     width: 150px;
     height: 14px;
-
     background:
         linear-gradient(
             90deg,
             #00d2ff,
             #3a7bd5
         );
-
     border-radius: 20px;
-
     top: 50%;
     left: 50%;
-
     transform-origin: center;
-
     box-shadow:
         0 0 12px rgba(0,210,255,0.8),
         0 0 30px rgba(58,123,213,0.6);
 
     @media (max-width: 1024px) {
-
         width: 125px;
         height: 12px;
     }
 
     @media (max-width: 768px) {
-
         width: 95px;
         height: 10px;
     }
 
     @media (max-width: 480px) {
-
         width: 76px;
         height: 8px;
     }
 }
 
 .x-symbol span:first-child {
-
     transform:
         translate(-50%, -50%)
         rotate(45deg);
 }
 
 .x-symbol span:last-child {
-
     transform:
         translate(-50%, -50%)
         rotate(-45deg);
@@ -194,44 +155,33 @@
 .o-symbol {
     width: 95px;
     height: 95px;
-
     border-radius: 50%;
-
     border: 14px solid #ff4d8d;
-
     box-shadow:
         0 0 12px rgba(255,77,141,0.8),
         0 0 28px rgba(255,77,141,0.5);
-
     animation: popO 0.25s ease;
 
     @media (max-width: 1024px) {
-
         width: 80px;
         height: 80px;
     }
 
     @media (max-width: 768px) {
-
         width: 64px;
         height: 64px;
-
         border-width: 10px;
     }
 
     @media (max-width: 480px) {
-
         width: 52px;
         height: 52px;
-
         border-width: 8px;
     }
 }
 
 /* ================= ANIMATION ================= */
-
 @keyframes popO {
-
     0% {
         transform: scale(0.5);
         opacity: 0;
@@ -242,3 +192,4 @@
         opacity: 1;
     }
 }
+

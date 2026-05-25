@@ -30,28 +30,28 @@ function PlayerCard({
             `}
             >
 
-                <svg className="timer-ring">
+                <svg className="timer-ring"  viewBox="0 0 50 50">
 
                     <circle
                         className="ring-bg"
-                        cx="40"
-                        cy="40"
-                        r="34"
+                        cx="25"
+                        cy="25"
+                        r="20"
                     />
 
                     <circle
                         className="ring-progress"
-                        cx="40"
-                        cy="40"
-                        r="34"
+                        cx="25"
+                        cy="25"
+                        r="20"
                         style={{
+                            strokeDasharray: 126,
                             strokeDashoffset:
                                 active
-                                    ? 213 - (213 * turnTime) / 30
+                                    ? 126 - (126 * turnTime) / 30
                                     : 0
                         }}
                     />
-
                 </svg>
 
                 <div className="hud-avatar">
