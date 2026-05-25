@@ -28,6 +28,11 @@
             repeat(3, 104px) !important;
         gap: 10px !important;
     }
+
+    @media (max-width: 320px) {
+        grid-template-columns:
+            repeat(3, 80px) !important;
+    }
 }
 
 /* ================= CELL ================= */
@@ -67,6 +72,11 @@
         width: 95px !important;
         height: 95px !important;
         border-radius: 20px;
+    }
+
+    @media (max-width: 320px) {
+        width: 80px !important;
+        height: 80px !important;
     }
 }
 

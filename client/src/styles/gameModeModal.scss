@@ -235,6 +235,20 @@
             }
         }
     }
+
+    @media (max-width: 320px) {
+        padding: 5px 10px;
+
+        .content {
+            h3 {
+                font-size: 16px;
+            }
+
+            p {
+                font-size: 12px;
+            }
+        }
+    }
 }
 
 .mode-card.bot {
