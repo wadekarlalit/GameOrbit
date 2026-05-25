@@ -32,8 +32,11 @@ function Game() {
     const [popupText, setPopupText] = useState("");
     const [gameStarted, setGameStarted] = useState(false);
     const [players, setPlayers] = useState<Players | null>(null);
+
+    // Timer
     const [turnTime, setTurnTime] = useState(30);
     // const [turnTime, setTurnTime] = useState(999);
+
     const [roundProcessed, setRoundProcessed] = useState(false);
     const navigate = useNavigate();
     const playerXName = players
@@ -42,6 +45,8 @@ function Game() {
     const playerOName = players
         ? Object.values(players).find(p => p.role === "O")?.name
         : "";
+    
+    // Timer
     const [gameTime, setGameTime] = useState({
         X: 120,
         O: 120,
@@ -259,6 +264,7 @@ function Game() {
 
         setRoundProcessed(false);
 
+        // Timer
         setGameTime({
             X: 120,
             O: 120,

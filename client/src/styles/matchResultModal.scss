@@ -1,155 +1,224 @@
+/* ================================================= */
+/* TABLET - @media (max-width: 768px) {} */
+/* MOBILE -  @media (max-width: 480px) {} */
+/* ================================================= */
+
 .result-overlay {
     position: fixed;
     inset: 0;
     background: rgba(2, 8, 20, 0.88);
     backdrop-filter: blur(8px);
-
     display: flex;
     align-items: center;
     justify-content: center;
-
+    padding: 20px;
     z-index: 9999;
-
     animation: fadeIn 0.4s ease;
+
+    @media (max-width: 768px) {   /* TABLET */
+        padding: 18px;
+        align-items: center;
+    }
+
+    @media (max-width: 480px) {   /* MOBILE */
+        padding: 0;
+        align-items: flex-end;
+    }
 }
 
 .result-modal {
-    width: 500px;
+    width: 100%;
+    max-width: 500px;
     background: linear-gradient(
         180deg,
         #132238,
         #0b1628
     );
-
     border-radius: 24px;
-
     padding: 40px;
-
     border: 1px solid rgba(255,255,255,0.08);
-
     box-shadow:
         0 0 40px rgba(0,0,0,0.4),
         0 0 80px rgba(32,214,199,0.08);
-
     text-align: center;
-
     animation: popupScale 0.5s ease;
+
+    @media (max-width: 768px) {   /* TABLET */
+        max-width: 95%;
+        padding: 32px 26px;
+    }
+
+    @media (max-width: 480px) {   /* MOBILE */
+        max-width: 100%;
+        border-radius: 28px 28px 0 0;
+        padding: 28px 20px;
+        animation: mobilePopup 0.35s ease;
+    }
 }
 
 .victory-text {
     font-size: 52px;
     font-weight: 900;
-
     color: #ff4d8d;
-
     margin-bottom: 12px;
-
+    line-height: 1.15;
     animation: glowText 1.2s infinite alternate;
+
+    @media (max-width: 768px) {   /* TABLET */
+        font-size: 42px;
+    }
+
+    @media (max-width: 480px) {   /* MOBILE */
+        font-size: 30px;
+    }
 }
 
 .winner-name {
     color: #d9e3f0;
     font-size: 22px;
+    margin-bottom: 34px;
 
-    margin-bottom: 40px;
+    @media (max-width: 768px) {   /* TABLET */
+        font-size: 20px;
+    }
+
+    @media (max-width: 480px) {   /* MOBILE */
+        font-size: 16px;
+        margin-bottom: 28px;
+    }
+}
+
+.victory-box {
+    margin-top: 25px;
+
+    @media (max-width: 480px) {   /* MOBILE */
+        margin-top: 18px;
+    }
+}
+
+.victory-title {
+    font-size: 34px;
+    color: white;
+    margin-bottom: 28px;
+
+    @media (max-width: 480px) {   /* MOBILE */
+        font-size: 24px;
+        margin-bottom: 22px;
+    }
 }
 
 .level-section {
     margin-bottom: 40px;
+
+    @media (max-width: 480px) {   /* MOBILE */
+
+        margin-bottom: 30px;
+    }
 }
 
 .level-header {
     display: flex;
     justify-content: space-between;
-
     margin-bottom: 12px;
-
     color: white;
     font-weight: 700;
+    font-size: 16px;
+
+    @media (max-width: 480px) {   /* MOBILE */
+        font-size: 14px;
+    }
 }
 
 .xp-bar {
     position: relative;
-
     height: 18px;
     border-radius: 999px;
-
     background: rgba(255,255,255,0.08);
-
     overflow: hidden;
+
+    @media (max-width: 480px) {   /* MOBILE */
+        height: 14px;
+    }
 }
 
 .xp-fill {
     height: 100%;
-
     background: linear-gradient(
         90deg,
         #20d6c7,
         #35efc0
     );
-
     border-radius: 999px;
-
     transition: width 0.3s ease;
 }
 
 .xp-circle {
     position: absolute;
     top: 50%;
-
     transform: translateY(-50%);
-
     width: 36px;
     height: 36px;
-
     border-radius: 50%;
-
     background: #20d6c7;
-
     display: flex;
     align-items: center;
     justify-content: center;
-
     color: #071120;
     font-weight: 900;
-
     box-shadow: 0 0 20px rgba(32,214,199,0.5);
-
     transition: left 0.3s ease;
+
+    @media (max-width: 480px) {   /* MOBILE */
+        width: 28px;
+        height: 28px;
+        font-size: 13px;
+        left: calc(var(--progress) - 14px);
+    }
 }
 
 .coins-reward {
     font-size: 34px;
     font-weight: 800;
-
     color: #ffd166;
-
     margin-bottom: 36px;
-
     animation: coinPop 0.7s ease infinite alternate;
+
+    @media (max-width: 768px) {   /* TABLET */
+        font-size: 28px;
+    }
+
+    @media (max-width: 480px) {   /* MOBILE */
+        font-size: 24px;
+        margin-bottom: 28px;
+    }
 }
 
 .result-buttons {
     display: flex;
     flex-direction: column;
     gap: 16px;
+
+    @media (max-width: 480px) {   /* MOBILE */
+        gap: 12px;
+    }
 }
 
 .play-btn,
 .leave-btn {
     border: none;
     outline: none;
-
     padding: 18px;
-
     border-radius: 16px;
-
     font-size: 18px;
     font-weight: 700;
-
     cursor: pointer;
-
     transition: 0.25s;
+
+    @media (max-width: 480px) {   /* MOBILE */
+        padding: 15px;
+        font-size: 15px;
+        border-radius: 14px;
+    }
 }
 
 .play-btn {
@@ -158,26 +227,23 @@
         #20d6c7,
         #24e1ae
     );
-
     color: #071120;
-}
 
-.play-btn:hover {
-    transform: translateY(-2px);
+    &:hover {
+        transform: translateY(-2px);
+    }
 }
 
 .leave-btn {
     background: rgba(255,255,255,0.08);
-
     color: white;
-}
 
-.leave-btn:hover {
-    background: rgba(255,255,255,0.12);
+    &:hover {
+        background: rgba(255,255,255,0.12);
+    }
 }
 
 @keyframes popupScale {
-
     0% {
         opacity: 0;
         transform: scale(0.7);
@@ -189,8 +255,19 @@
     }
 }
 
-@keyframes fadeIn {
+@keyframes mobilePopup {
+    from {
+        opacity: 0;
+        transform: translateY(100px);
+    }
 
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes fadeIn {
     from {
         opacity: 0;
     }
@@ -201,7 +278,6 @@
 }
 
 @keyframes glowText {
-
     from {
         text-shadow: 0 0 10px rgba(255,77,141,0.4);
     }
@@ -214,7 +290,6 @@
 }
 
 @keyframes coinPop {
-
     from {
         transform: scale(1);
     }
@@ -224,46 +299,3 @@
     }
 }
 
-.victory-box {
-    margin-top: 25px;
-}
-
-.level-progress {
-    width: 260px;
-    height: 10px;
-    background: rgba(255,255,255,0.1);
-    border-radius: 20px;
-    margin: 20px auto;
-    position: relative;
-}
-
-.progress-fill {
-    width: 70%;
-    height: 100%;
-    border-radius: 20px;
-    background: linear-gradient(
-        90deg,
-        #00f5d4,
-        #00bbf9
-    );
-}
-
-.level-circle {
-    width: 42px;
-    height: 42px;
-    border-radius: 50%;
-    background: #00f5d4;
-    color: black;
-
-    display: flex;
-    align-items: center;
-    justify-content: center;
-
-    font-weight: bold;
-
-    position: absolute;
-    right: 25%;
-    top: 50%;
-
-    transform: translateY(-50%);
-}
