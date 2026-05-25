@@ -28,10 +28,6 @@
         min-width: unset;
     }
 
-    @media (max-width: 580px) {
-        width: 100%;
-    }
-
     @media (max-width: 600px) {
         gap: 5px;
         padding: 10px 5px;
@@ -49,6 +45,15 @@
         flex-direction: column-reverse;
         text-align: center;
     }
+
+    // @media (max-width: 320px) {
+    //     gap: 5px;
+    //     padding: 10px 5px;
+    //     border-radius: 20px;
+    //     width: 30%;
+    //     flex-direction: column-reverse;
+    //     text-align: center;
+    // }
 }
 
 .hud-player.turn {
