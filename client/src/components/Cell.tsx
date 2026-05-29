@@ -1,38 +1,31 @@
-// import type { CellValue } from "../types/game.types";
-
-// interface CellProps {
-//     value: CellValue,
-//     onClick: () => void,
-// }
-
-// function Cell({ value, onClick }: CellProps){
-//     return (
-//         <div className="cell" onClick={onClick}>
-//             {value}
-//         </div>
-//     )
-// }
-
-// export default Cell;
-
-
-//..................................................................
-
-
 import type { CellValue } from "../types/game.types";
 
 interface CellProps {
     value: CellValue;
     onClick: () => void;
+    currentPlayer: "X" | "O";
 }
 
-function Cell({ value, onClick }: CellProps) {
+function Cell({ value, currentPlayer, onClick }: CellProps) {
 
     return (
         <div
             className="cell modern-cell"
             onClick={onClick}
         >
+            {!value && (
+                <>
+                    {!value && currentPlayer === "X" && (
+                        <div className="x-hover">
+                            <span></span>
+                            <span></span>
+                        </div>
+                    )}
+                    {!value && currentPlayer === "O" && (
+                        <div className="o-hover"></div>
+                    )}
+                </>
+            )}
 
             {
                 value === "X" && (

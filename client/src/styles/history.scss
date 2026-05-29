@@ -1,0 +1,248 @@
+.history-page {
+    min-height: 100vh;
+
+    background:
+        radial-gradient(
+            circle at top,
+            #10233b,
+            #07111f 60%
+        );
+
+    padding: 30px;
+}
+
+/* ================= TITLE ================= */
+
+.history-title {
+    color: white;
+    font-size: 48px;
+    font-weight: 700;
+    margin-bottom: 26px;
+}
+
+/* ================= TABLE WRAPPER ================= */
+
+.history-table-wrapper {
+    background: rgba(255,255,255,0.04);
+
+    border: 1px solid rgba(255,255,255,0.08);
+
+    border-radius: 0px;
+
+    overflow: hidden;
+
+    backdrop-filter: blur(10px);
+}
+
+/* ================= TABLE ================= */
+
+.history-table {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+.history-table thead {
+    background: rgba(255,255,255,0.03);
+}
+
+.history-table th {
+    text-align: left;
+
+    padding: 26px 20px;
+
+    color: #9fb0c7;
+
+    font-size: 16px;
+    font-weight: 700;
+
+    border-bottom:
+        1px solid rgba(255,255,255,0.08);
+}
+
+.history-table td {
+    padding: 20px;
+
+    border-bottom:
+        1px solid rgba(255,255,255,0.08);
+
+    vertical-align: middle;
+}
+
+/* ================= PLAYERS ================= */
+
+.players-column {
+    display: flex;
+    flex-direction: column;
+    gap: 14px;
+}
+
+.player-row {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+
+    color: white;
+}
+
+.player-row.opponent {
+    color: #c8d4e2;
+}
+
+.player-name {
+    font-size: 17px;
+}
+
+.rating {
+    color: #8ca0b8;
+}
+
+.flag {
+    font-size: 18px;
+}
+
+/* ================= RESULT ================= */
+
+.result-column {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.score-box {
+    width: 34px;
+    height: 34px;
+
+    border-radius: 10px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    font-weight: 700;
+    color: white;
+}
+
+.score-box.winner {
+    background: #19324b;
+}
+
+.score-box.loser {
+    background: #1a2d44;
+}
+
+/* ================= GAME ================= */
+
+.game-name {
+    color: #d8e3ef;
+    font-size: 18px;
+}
+
+/* ================= DATE ================= */
+
+.date-text {
+    color: #d8e3ef;
+    font-size: 17px;
+}
+
+/* ================= PAGINATION ================= */
+
+.pagination {
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    gap: 30px;
+
+    padding: 18px 24px;
+
+    background: rgba(255,255,255,0.02);
+}
+
+.page-size {
+    display: flex;
+    align-items: center;
+    gap: 14px;
+
+    color: white;
+}
+
+.page-size select {
+    width: 90px;
+    height: 48px;
+
+    background: #08111d;
+
+    border: 1px solid rgba(255,255,255,0.18);
+
+    color: white;
+
+    border-radius: 8px;
+
+    padding: 0 12px;
+
+    outline: none;
+
+    font-size: 16px;
+}
+
+.page-info {
+    color: white;
+    font-size: 18px;
+}
+
+.page-buttons {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.page-buttons button {
+    width: 42px;
+    height: 42px;
+
+    border-radius: 10px;
+
+    border: none;
+
+    background: rgba(255,255,255,0.05);
+
+    color: white;
+
+    cursor: pointer;
+
+    transition: 0.25s;
+}
+
+.page-buttons button:hover {
+    background: rgba(255,255,255,0.12);
+}
+
+.page-buttons button:disabled {
+    opacity: 0.35;
+    cursor: not-allowed;
+}
+/* ================= MOBILE ================= */
+
+@media (max-width: 768px) {
+
+    .history-page {
+        padding: 18px;
+    }
+
+    .history-title {
+        font-size: 34px;
+    }
+
+    .history-table-wrapper {
+        overflow-x: auto;
+    }
+
+    .history-table {
+        min-width: 760px;
+    }
+
+    .pagination {
+        justify-content: space-between;
+        gap: 14px;
+        flex-wrap: wrap;
+    }
+}

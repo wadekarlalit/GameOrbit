@@ -33,6 +33,9 @@
         0 30px 80px rgba(0, 0, 0, 0.55),
         0 0 0 1px rgba(255, 255, 255, 0.04);
     animation: popup .25s ease;
+    font-family: "Concert One", sans-serif;
+    font-weight: 400;
+    letter-spacing: 0.5px;
 
     @media (max-width: 768px) {
         max-width: 95%;
@@ -181,6 +184,9 @@
         outline: none;
         color: white;
         font-size: 17px;
+        font-family: "Concert One", sans-serif;
+        font-weight: 400;
+        letter-spacing: 0.5px;
 
         @media (max-width: 480px) {
             font-size: 15px;
@@ -200,12 +206,15 @@
             #19d3ae,
             #0fa4ff);
     color: white;
-    font-size: 20px;
+    font-size: 24px;
     font-weight: 700;
     cursor: pointer;
     transition: .2s;
     box-shadow:
         0 10px 30px rgba(15, 164, 255, 0.25);
+    font-family: "Concert One", sans-serif;
+    font-weight: 400;
+    letter-spacing: 0.5px;
 
     @media (max-width: 768px) {
         font-size: 18px;
@@ -246,6 +255,9 @@
         font-weight: 500;
         cursor: pointer;
         transition: .2s;
+        font-family: "Concert One", sans-serif;
+        font-weight: 400;
+        letter-spacing: 0.5px;
 
         @media (max-width: 480px) {
             font-size: 13px;
@@ -262,6 +274,8 @@
     text-align: center;
     color: #7d8590;
     font-size: 14px;
+    height: unset;
+    background: transparent;
 
     span {
         background: #0b1b2c;
@@ -287,7 +301,7 @@
 
 .socials {
     display: flex;
-    flex-direction: column;
+    flex-direction: column-reverse;
     gap: 16px;
 
     button {
@@ -305,6 +319,9 @@
         padding: 0 16px;
         cursor: pointer;
         transition: .2s;
+        font-family: "Concert One", sans-serif;
+        font-weight: 400;
+        letter-spacing: 0.5px;
 
         @media (max-width: 480px) {
             min-height: 54px;
