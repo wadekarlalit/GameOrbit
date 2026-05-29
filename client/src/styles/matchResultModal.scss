@@ -42,6 +42,9 @@
         0 0 80px rgba(32,214,199,0.08);
     text-align: center;
     animation: popupScale 0.5s ease;
+    font-family: "Concert One", sans-serif;
+    font-weight: 400;
+    letter-spacing: 1px;
 
     @media (max-width: 768px) {   /* TABLET */
         max-width: 95%;
@@ -213,6 +216,9 @@
     font-weight: 700;
     cursor: pointer;
     transition: 0.25s;
+    font-family: "Concert One", sans-serif;
+    font-weight: 400;
+    letter-spacing: 0.5px;
 
     @media (max-width: 480px) {   /* MOBILE */
         padding: 15px;

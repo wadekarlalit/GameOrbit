@@ -540,6 +540,7 @@ function Game() {
                         <Board
                             board={board}
                             onCellClick={handleMove}
+                            currentPlayer={currentPlayer}
                         />
 
                     </div>
@@ -547,7 +548,7 @@ function Game() {
                     {/* ================= BOTTOM BAR ================= */}
                     <div className="bottom-bar">
 
-                        <button className="abort-btn">
+                        <button className="abort-btn" onClick={() => navigate("/dashboard")}>
                             Abort Game
                         </button>
 

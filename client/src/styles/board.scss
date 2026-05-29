@@ -190,6 +190,130 @@
     }
 }
 
+/* ================= CELL HOVER PREVIEW ================= */
+
+.modern-cell {
+
+    &:hover {
+
+        .x-hover,
+        .o-hover {
+            opacity: 1;
+            transform: scale(1);
+        }
+    }
+}
+
+/* ================= HOVER X ================= */
+.x-hover {
+    position: absolute;
+
+    width: 150px;
+    height: 150px;
+
+    opacity: 0;
+    transform: scale(0.8);
+
+    transition: 0.2s ease;
+
+    @media (max-width: 1024px) {
+        width: 125px;
+        height: 125px;
+    }
+
+    @media (max-width: 768px) {
+        width: 95px;
+        height: 95px;
+    }
+
+    @media (max-width: 480px) {
+        width: 76px;
+        height: 76px;
+    }
+
+    span {
+        position: absolute;
+
+        width: 150px;
+        height: 14px;
+
+        background:
+            linear-gradient(
+                90deg,
+                rgba(0,210,255,0.35),
+                rgba(58,123,213,0.35)
+            );
+
+        border-radius: 20px;
+
+        top: 50%;
+        left: 50%;
+
+        transform-origin: center;
+
+        @media (max-width: 1024px) {
+            width: 125px;
+            height: 12px;
+        }
+
+        @media (max-width: 768px) {
+            width: 95px;
+            height: 10px;
+        }
+
+        @media (max-width: 480px) {
+            width: 76px;
+            height: 8px;
+        }
+    }
+
+    span:first-child {
+        transform:
+            translate(-50%, -50%)
+            rotate(45deg);
+    }
+
+    span:last-child {
+        transform:
+            translate(-50%, -50%)
+            rotate(-45deg);
+    }
+}
+
+/* ================= HOVER O ================= */
+.o-hover {
+    position: absolute;
+
+    width: 95px;
+    height: 95px;
+
+    border-radius: 50%;
+
+    border: 14px solid rgba(255,77,141,0.35);
+
+    opacity: 0;
+    transform: scale(0.8);
+
+    transition: 0.2s ease;
+
+    @media (max-width: 1024px) {
+        width: 80px;
+        height: 80px;
+    }
+
+    @media (max-width: 768px) {
+        width: 64px;
+        height: 64px;
+        border-width: 10px;
+    }
+
+    @media (max-width: 480px) {
+        width: 52px;
+        height: 52px;
+        border-width: 8px;
+    }
+}
+
 /* ================= ANIMATION ================= */
 @keyframes popO {
     0% {

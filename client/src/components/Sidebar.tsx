@@ -3,6 +3,7 @@ import "../styles/sidebar.scss";
 import { useEffect, useRef, useState } from "react";
 import { useAuth } from "../context/AuthContext";
 import AuthModal from "./AuthModal";
+import { useLocation, useNavigate } from "react-router-dom";
 
 type Props = {
     isOpen: boolean;
@@ -13,6 +14,8 @@ function Sidebar({ isOpen, onClose }: Props) {
 
     const [open, setOpen] = useState(false);
     const dropdownRef = useRef<HTMLDivElement>(null);
+    const navigate = useNavigate();
+    const location = useLocation();
 
     const { logout, login } = useAuth();
 
@@ -99,10 +102,43 @@ function Sidebar({ isOpen, onClose }: Props) {
 
                 {/* 🔹 Main Menu */}
                 <ul className="menu">
-                    <li className="active" onClick={onClose}><Home /> Home</li>
-                    <li onClick={onClose}><MessageCircle /> Messaging</li>
-                    <li onClick={onClose}><Users /> Friends</li>
-                    <li onClick={onClose}><History /> History</li>
+                    <li className={location.pathname === "/dashboard" ? "active" : ""}
+                        onClick={() => {
+                            onClose();
+                            navigate("/dashboard");
+                        }}>
+                        <Home />
+                        Home
+                    </li>
+
+                    <li className={location.pathname === "/chat" ? "active" : ""}
+                        onClick={() => {
+                            onClose();
+                            navigate("/chat")
+                        }}>
+                        <MessageCircle />
+                        Messaging
+                    </li>
+
+                    <li className={location.pathname === "/friends" ? "active" : ""}
+                        onClick={() => {
+                            onClose();
+                            navigate("/friends")
+                        }}>
+                        <Users />
+                        Friends
+                    </li>
+
+                    <li className={location.pathname === "/history" ? "active" : ""}
+                        onClick={() => {
+                            onClose();
+                            navigate("/history")
+                        }}>
+                        <History />
+                        History
+                    </li>
+
+                    {/* <li onClick={onClose}><History /> History</li> */}
                 </ul>
 
                 <div className="divider" />

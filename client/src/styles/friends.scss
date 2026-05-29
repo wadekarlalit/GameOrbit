@@ -1,0 +1,334 @@
+.friends-page {
+    min-height: 100vh;
+    padding: 40px;
+
+    background:
+        radial-gradient(circle at top,
+            #11233a,
+            #07111d 65%);
+
+    color: white;
+
+    @media (max-width: 768px) {
+        padding: 20px;
+    }
+}
+
+.invite-box {
+    width: 100%;
+    max-width: 900px;
+
+    margin: 0 auto 30px auto;
+
+    padding: 28px;
+
+    border-radius: 18px;
+
+    background:
+        rgba(255, 255, 255, 0.03);
+
+    border:
+        1px solid rgba(255, 255, 255, 0.06);
+
+    box-shadow:
+        0 0 25px rgba(0, 0, 0, 0.25);
+
+    font-size: 28px;
+    font-family: "Concert One", sans-serif;
+
+    @media (max-width: 768px) {
+        font-size: 20px;
+        padding: 22px;
+    }
+
+    @media (max-width: 480px) {
+        font-size: 17px;
+        padding: 18px;
+    }
+}
+
+.pending-box {
+    font-family: "Concert One", sans-serif;
+    font-size: 24px;
+    font-weight: 400;
+    width: 100%;
+    max-width: 900px;
+    margin: auto;
+    margin-bottom: 20px;
+    padding: 28px;
+    border-radius: 22px;
+    background:
+        rgba(255, 255, 255, 0.03);
+    border:
+        1px solid rgba(255, 255, 255, 0.06);
+    box-shadow:
+        0 0 40px rgba(0, 0, 0, 0.3);
+}
+
+.friends-card {
+    width: 100%;
+    max-width: 900px;
+
+    margin: auto;
+
+    padding: 28px;
+
+    border-radius: 22px;
+
+    background:
+        rgba(255, 255, 255, 0.03);
+
+    border:
+        1px solid rgba(255, 255, 255, 0.06);
+
+    box-shadow:
+        0 0 40px rgba(0, 0, 0, 0.3);
+
+    h2 {
+        font-family: "Concert One", sans-serif;
+        font-size: 28px;
+        font-weight: 400;
+        margin-bottom: 35px;
+
+        @media (max-width: 768px) {
+            font-size: 24px;
+        }
+
+        @media (max-width: 480px) {
+            font-size: 22px;
+        }
+    }
+
+    @media (max-width: 768px) {
+        padding: 22px;
+    }
+
+    @media (max-width: 480px) {
+        padding: 18px;
+    }
+}
+
+.friends-list {
+    display: flex;
+    flex-direction: column;
+    gap: 24px;
+}
+
+.friend-row {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 20px;
+
+    @media (max-width: 768px) {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+}
+
+.friend-left {
+    display: flex;
+    align-items: center;
+    gap: 18px;
+}
+
+.friend-avatar {
+    width: 50px;
+    height: 50px;
+
+    border-radius: 50%;
+
+    background:
+        linear-gradient(180deg,
+            #324960,
+            #223247);
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    font-size: 38px;
+
+    border:
+        2px solid rgba(255, 255, 255, 0.08);
+
+    @media (max-width: 480px) {
+        width: 64px;
+        height: 64px;
+        font-size: 30px;
+    }
+}
+
+.friend-info {
+
+    h3 {
+        font-family: "Concert One", sans-serif;
+        font-size: 20px;
+        font-weight: 400;
+        margin: 0;
+
+        @media (max-width: 480px) {
+            font-size: 18px;
+        }
+    }
+
+    p {
+        font-family: "Concert One", sans-serif;
+        font-size: 16px;
+        font-weight: 400;
+        margin-top: 8px;
+        color: #9bb0c8;
+
+        @media (max-width: 480px) {
+            font-size: 16px;
+        }
+    }
+}
+
+.friend-actions {
+    display: flex;
+    align-items: center;
+    gap: 14px;
+
+    @media (max-width: 480px) {
+        width: 100%;
+        flex-wrap: wrap;
+    }
+}
+
+.challenge-btn,
+.message-btn {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 5px;
+    font-family: "Concert One", sans-serif;
+    font-size: 18px;
+    font-weight: 400;
+    letter-spacing: 0.5px;
+    border: none;
+    outline: none;
+
+    padding: 10px 14px;
+
+    border-radius: 12px;
+
+    cursor: pointer;
+
+    transition: 0.25s;
+
+    @media (max-width: 480px) {
+        flex: 1;
+        font-size: 15px;
+        padding: 12px;
+    }
+}
+
+.challenge-btn {
+    background:
+        linear-gradient(90deg,
+            #00d2ff,
+            #3a7bd5);
+
+    color: white;
+
+    &:hover {
+        transform: translateY(-2px);
+    }
+}
+
+.message-btn {
+    background:
+        rgba(255, 255, 255, 0.08);
+
+    color: white;
+
+    &:hover {
+        background:
+            rgba(255, 255, 255, 0.14);
+    }
+}
+
+.friend-menu {
+    position: relative;
+}
+
+.menu-btn {
+    // width: 48px;
+    // height: 48px;
+    padding: 5px 10px;
+
+    border: none;
+    border-radius: 12px;
+
+    background:
+        rgba(255, 255, 255, 0.08);
+
+    color: white;
+
+    cursor: pointer;
+
+    font-size: 24px;
+
+    transition: 0.25s;
+
+    &:hover {
+        background:
+            rgba(255, 255, 255, 0.15);
+    }
+}
+
+.dropdown-menu {
+    position: absolute;
+    top: 60px;
+    right: 0;
+
+    width: 220px;
+
+    background:
+        #31465d;
+
+    border-radius: 16px;
+
+    overflow: hidden;
+
+    box-shadow:
+        0 20px 40px rgba(0, 0, 0, 0.45);
+
+    opacity: 0;
+    visibility: hidden;
+
+    transform:
+        translateY(-10px);
+
+    transition: 0.25s;
+
+    z-index: 100;
+
+    p {
+        margin: 0;
+        padding: 18px 20px;
+
+        cursor: pointer;
+
+        font-size: 18px;
+
+        transition: 0.2s;
+
+        &:hover {
+            background:
+                rgba(255, 255, 255, 0.08);
+        }
+    }
+
+    @media (max-width: 480px) {
+        right: auto;
+        left: 0;
+    }
+}
+
+.friend-menu:hover .dropdown-menu {
+    opacity: 1;
+    visibility: visible;
+    transform: translateY(0);
+}
