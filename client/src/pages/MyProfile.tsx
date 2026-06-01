@@ -3,7 +3,7 @@ import Sidebar from "../components/Sidebar";
 import Header from "../components/Header";
 import { profileData } from "../data/games"
 
-import "../styles/MyProfile.scss";
+import "../styles/myProfile.scss";
 
 function MyProfile() {
 
