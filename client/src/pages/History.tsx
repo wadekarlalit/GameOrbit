@@ -14,13 +14,13 @@ function History() {
         {
             id: 1,
             user: {
-                name: "lala1",
-                rating: 1500,
+                name: "lala",
+                rating: 100,
                 flag: "🇮🇳"
             },
             opponent: {
-                name: "Paper Man",
-                rating: 1112
+                name: "Bot",
+                rating: 112
             },
             userScore: 1,
             opponentScore: 0,
@@ -31,13 +31,13 @@ function History() {
         {
             id: 2,
             user: {
-                name: "lala2",
-                rating: 1500,
+                name: "lala",
+                rating: 200,
                 flag: "🇮🇳"
             },
             opponent: {
-                name: "Paper Man",
-                rating: 1112
+                name: "Bot",
+                rating: 192
             },
             userScore: 1,
             opponentScore: 0,
@@ -48,13 +48,13 @@ function History() {
         {
             id: 3,
             user: {
-                name: "lala3",
-                rating: 1500,
+                name: "lala",
+                rating: 300,
                 flag: "🇮🇳"
             },
             opponent: {
-                name: "Paper Man",
-                rating: 1112
+                name: "Bot",
+                rating: 200
             },
             userScore: 1,
             opponentScore: 0,
@@ -65,13 +65,13 @@ function History() {
         {
             id: 4,
             user: {
-                name: "lala4",
-                rating: 1500,
+                name: "lala",
+                rating: 400,
                 flag: "🇮🇳"
             },
             opponent: {
-                name: "Paper Man",
-                rating: 1680
+                name: "Bot",
+                rating: 160
             },
             userScore: 0,
             opponentScore: 1,
@@ -81,13 +81,13 @@ function History() {
         {
             id: 5,
             user: {
-                name: "lala5",
-                rating: 1500,
+                name: "lala",
+                rating: 500,
                 flag: "🇮🇳"
             },
             opponent: {
-                name: "Paper Man",
-                rating: 1680
+                name: "Bot",
+                rating: 680
             },
             userScore: 0,
             opponentScore: 1,
@@ -97,13 +97,13 @@ function History() {
         {
             id: 6,
             user: {
-                name: "lala6",
-                rating: 1500,
+                name: "lala",
+                rating: 600,
                 flag: "🇮🇳"
             },
             opponent: {
-                name: "Paper Man",
-                rating: 1680
+                name: "Bot",
+                rating: 200
             },
             userScore: 0,
             opponentScore: 1,
@@ -113,13 +113,13 @@ function History() {
         {
             id: 7,
             user: {
-                name: "lala7",
-                rating: 1500,
+                name: "lala",
+                rating: 700,
                 flag: "🇮🇳"
             },
             opponent: {
-                name: "Paper Man",
-                rating: 1680
+                name: "Bot",
+                rating: 900
             },
             userScore: 0,
             opponentScore: 1,
@@ -129,13 +129,13 @@ function History() {
         {
             id: 8,
             user: {
-                name: "lala8",
-                rating: 1500,
+                name: "lala",
+                rating: 800,
                 flag: "🇮🇳"
             },
             opponent: {
-                name: "Paper Man",
-                rating: 1680
+                name: "Bot",
+                rating: 550
             },
             userScore: 0,
             opponentScore: 1,
@@ -145,13 +145,13 @@ function History() {
         {
             id: 9,
             user: {
-                name: "lala9",
-                rating: 1500,
+                name: "lala",
+                rating: 900,
                 flag: "🇮🇳"
             },
             opponent: {
-                name: "Paper Man",
-                rating: 1680
+                name: "Bot",
+                rating: 680
             },
             userScore: 0,
             opponentScore: 1,
@@ -161,13 +161,13 @@ function History() {
         {
             id: 10,
             user: {
-                name: "lala10",
-                rating: 1500,
+                name: "lala",
+                rating: 1000,
                 flag: "🇮🇳"
             },
             opponent: {
-                name: "Paper Man",
-                rating: 1680
+                name: "Bot",
+                rating: 220
             },
             userScore: 0,
             opponentScore: 1,
@@ -177,13 +177,13 @@ function History() {
         {
             id: 11,
             user: {
-                name: "lala11",
-                rating: 1500,
+                name: "lala",
+                rating: 1100,
                 flag: "🇮🇳"
             },
             opponent: {
-                name: "Paper Man",
-                rating: 1680
+                name: "Bot",
+                rating: 280
             },
             userScore: 0,
             opponentScore: 1,
@@ -193,13 +193,13 @@ function History() {
         {
             id: 12,
             user: {
-                name: "lala12",
-                rating: 1500,
+                name: "lala",
+                rating: 1200,
                 flag: "🇮🇳"
             },
             opponent: {
-                name: "Paper Man",
-                rating: 1680
+                name: "Bot",
+                rating: 950
             },
             userScore: 0,
             opponentScore: 1,
@@ -209,13 +209,13 @@ function History() {
         {
             id: 13,
             user: {
-                name: "lala13",
-                rating: 1500,
+                name: "lala",
+                rating: 1300,
                 flag: "🇮🇳"
             },
             opponent: {
-                name: "Paper Man",
-                rating: 1680
+                name: "Bot",
+                rating: 380
             },
             userScore: 0,
             opponentScore: 1,
@@ -225,13 +225,13 @@ function History() {
         {
             id: 14,
             user: {
-                name: "lala14",
-                rating: 1500,
+                name: "lala",
+                rating: 1400,
                 flag: "🇮🇳"
             },
             opponent: {
-                name: "Paper Man",
-                rating: 1680
+                name: "Bot",
+                rating: 222
             },
             userScore: 0,
             opponentScore: 1,
@@ -241,13 +241,13 @@ function History() {
         {
             id: 15,
             user: {
-                name: "lala15",
+                name: "lala",
                 rating: 1500,
                 flag: "🇮🇳"
             },
             opponent: {
-                name: "Paper Man",
-                rating: 1680
+                name: "Bot",
+                rating: 543
             },
             userScore: 0,
             opponentScore: 1,
@@ -259,12 +259,21 @@ function History() {
     // pagination logic
     const [currentPage, setCurrentPage] = useState(1);
     const [itemsPerPage, setItemsPerPage] = useState(5);
-    // const itemsPerPage = 5;
+
     const totalItems = historyData.length;
-    const totalPages = Math.ceil(totalItems / itemsPerPage);
-    const startIndex = (currentPage - 1) * itemsPerPage;
-    const endIndex = startIndex + itemsPerPage;
-    const currentItems = historyData.slice(startIndex, endIndex);
+
+    const totalPages = Math.ceil(
+        totalItems / itemsPerPage
+    );
+
+    const startIndex =
+        (currentPage - 1) * itemsPerPage;
+
+    const endIndex =
+        startIndex + itemsPerPage;
+
+    const currentItems =
+        historyData.slice(startIndex, endIndex);
 
     return (
 
@@ -404,30 +413,29 @@ function History() {
                                     Items per page:
                                 </span>
 
-                                <select defaultValue={5}>
+                                <select
+                                    value={itemsPerPage}
+                                    onChange={(e) => {
+                                        setItemsPerPage(Number(e.target.value));
+                                        setCurrentPage(1);
+                                    }}
+                                >
 
-                                    <option value={5} onClick={() =>
-                                        setItemsPerPage(5)
-                                    }>5</option>
-
-                                    <option value={10} onClick={() =>
-                                        setItemsPerPage(10)
-                                    }>10</option>
-
+                                    <option value={5}>5</option>
+                                    <option value={10}>10</option>
                                     <option value={20}>20</option>
-
-                                    <option value={30}>50</option>
+                                    <option value={30}>30</option>
 
                                 </select>
                             </div>
 
                             {/* CENTER */}
                             <div className="page-info">
-                                {startIndex + 1}
-                                {"-"}
-                                {Math.min(endIndex, totalItems)}
-                                {"of"}
-                                {totalItems}
+                                <span>{startIndex + 1}</span>
+                                <span>{"-"}</span>
+                                <span>{Math.min(endIndex, totalItems)}</span>
+                                <span>{"of"}</span>
+                                <span>{totalItems}</span>
                             </div>
 
                             {/* RIGHT */}

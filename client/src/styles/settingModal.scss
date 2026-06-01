@@ -1,0 +1,180 @@
+.settings-overlay {
+    position: fixed;
+    inset: 0;
+
+    background: rgba(0, 0, 0, 0.7);
+    backdrop-filter: blur(8px);
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    z-index: 9999;
+
+    padding: 20px;
+}
+
+.settings-modal {
+    width: 100%;
+    max-width: 650px;
+
+    background: linear-gradient(
+        180deg,
+        #132238,
+        #0b1628
+    );
+
+    border-radius: 20px;
+
+    overflow: hidden;
+
+    border: 1px solid rgba(255,255,255,0.08);
+
+    box-shadow:
+        0 0 30px rgba(0,0,0,0.4),
+        0 0 60px rgba(32,214,199,0.08);
+
+    @media (max-width: 768px) {
+        max-width: 100%;
+    }
+}
+
+.settings-header {
+    height: 85px;
+
+    padding: 0 24px;
+
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    border-bottom: 1px solid rgba(255,255,255,0.08);
+
+    h2 {
+        color: white;
+        font-size: 32px;
+        font-weight: 400;
+    }
+
+    @media (max-width: 480px) {
+        height: 70px;
+
+        h2 {
+            font-size: 26px;
+        }
+    }
+}
+
+.close-btn {
+    background: transparent;
+    border: none;
+    color: white;
+    cursor: pointer;
+}
+
+.settings-body {
+    padding: 30px;
+
+    display: flex;
+    flex-direction: column;
+    gap: 28px;
+
+    @media (max-width: 480px) {
+        padding: 20px;
+        gap: 22px;
+    }
+}
+
+.setting-row {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.setting-left {
+    display: flex;
+    align-items: center;
+    gap: 14px;
+
+    color: #d7dfeb;
+
+    span {
+        font-size: 24px;
+    }
+
+    svg {
+        color: #8ea2bc;
+    }
+
+    @media (max-width: 480px) {
+        span {
+            font-size: 18px;
+        }
+    }
+}
+
+.switch {
+    position: relative;
+
+    width: 52px;
+    height: 30px;
+
+    input {
+        display: none;
+    }
+}
+
+.slider {
+    position: absolute;
+    inset: 0;
+
+    border-radius: 30px;
+
+    background: rgba(255,255,255,0.18);
+
+    cursor: pointer;
+
+    transition: 0.3s;
+
+    &::before {
+        content: "";
+
+        position: absolute;
+        left: 3px;
+        top: 3px;
+
+        width: 24px;
+        height: 24px;
+
+        border-radius: 50%;
+
+        background: white;
+
+        transition: 0.3s;
+    }
+}
+
+.switch input:checked + .slider {
+    background: #20d6c7;
+}
+
+.switch input:checked + .slider::before {
+    transform: translateX(22px);
+}
+
+.language-box {
+    min-width: 120px;
+    height: 44px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    border-radius: 10px;
+
+    background: rgba(255,255,255,0.05);
+
+    border: 1px solid rgba(255,255,255,0.08);
+
+    color: white;
+}

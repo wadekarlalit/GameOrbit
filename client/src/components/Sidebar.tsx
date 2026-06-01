@@ -4,6 +4,8 @@ import { useEffect, useRef, useState } from "react";
 import { useAuth } from "../context/AuthContext";
 import AuthModal from "./AuthModal";
 import { useLocation, useNavigate } from "react-router-dom";
+import GameSelectionModal from "./GameSelectionModal";
+import SettingsModal from "./SettingsModal";
 
 type Props = {
     isOpen: boolean;
@@ -23,6 +25,14 @@ function Sidebar({ isOpen, onClose }: Props) {
     const [showAuth, setShowAuth] = useState(false);
     const storedUser = localStorage.getItem("user");
     const user = storedUser ? JSON.parse(storedUser) : null;
+
+    const [showGameSelector, setShowGameSelector] =
+        useState(false);
+    const [selectedMode, setSelectedMode] =
+        useState<"bot" | "friend" | "online">("bot");
+
+    const [showSettings, setShowSettings] =
+        useState(false);
 
     useEffect(() => {
         function handleClickOutside(e: MouseEvent) {
@@ -63,8 +73,15 @@ function Sidebar({ isOpen, onClose }: Props) {
 
                             <div className={`dropdown ${open ? "show" : ""}`}>
                                 <ul>
-                                    <li onClick={onClose}><User /> My Account</li>
-                                    <li onClick={onClose}><UserCircle /> My Profile</li>
+                                    <li onClick={() => {
+                                        onClose();
+                                        navigate("/my-account");
+                                    }}><User /> My Account</li>
+                                    <li onClick={() => {
+                                        onClose();
+                                        navigate("/my-profile");
+                                    }}><UserCircle /> My Profile</li>
+                                    {/* <li onClick={onClose}><UserCircle /> My Profile</li> */}
                                     <li onClick={onClose}><Image /> Change Avatar</li>
 
                                     <li
@@ -93,7 +110,9 @@ function Sidebar({ isOpen, onClose }: Props) {
 
                     <div className="icons">
                         <Bell />
-                        <Settings />
+                        <Settings onClick={() =>
+                            setShowSettings(true)
+                        } />
                     </div>
                 </div>
 
@@ -147,8 +166,32 @@ function Sidebar({ isOpen, onClose }: Props) {
                 <div className="section">
                     <p className="section-title">Play online</p>
                     <ul>
-                        <li onClick={onClose}>👥 Play with a friend</li>
-                        <li onClick={onClose}>🤖 Play vs robot</li>
+                        <li
+                            onClick={() => {
+                                setSelectedMode("bot");
+                                setShowGameSelector(true);
+                            }}
+                        >
+                            🤖 Play with robot
+                        </li>
+
+                        <li
+                            onClick={() => {
+                                setSelectedMode("friend");
+                                setShowGameSelector(true);
+                            }}
+                        >
+                            👥 Play with a friend
+                        </li>
+
+                        <li
+                            onClick={() => {
+                                setSelectedMode("online");
+                                setShowGameSelector(true);
+                            }}
+                        >
+                            🌐 Play Online
+                        </li>
                     </ul>
                 </div>
 
@@ -276,6 +319,27 @@ function Sidebar({ isOpen, onClose }: Props) {
                         type="login"
                         onClose={() => setShowAuth(false)}
                         onLogin={() => window.location.reload()}
+                    />
+                )
+            }
+
+            {
+                showGameSelector && (
+                    <GameSelectionModal
+                        mode={selectedMode}
+                        onClose={() =>
+                            setShowGameSelector(false)
+                        }
+                    />
+                )
+            }
+
+            {
+                showSettings && (
+                    <SettingsModal
+                        onClose={() =>
+                            setShowSettings(false)
+                        }
                     />
                 )
             }
