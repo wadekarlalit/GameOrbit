@@ -4,10 +4,11 @@ import { useState } from "react";
 
 import Sidebar from "../components/Sidebar";
 import Header from "../components/Header";
+import SettingsModal from "../components/SettingsModal";
 
 function History() {
     const [isSidebarOpen, setIsSidebarOpen] = useState(false);
-    // document.title = "hhhhhhhhhh";
+    const [showSettings, setShowSettings] = useState(false);
     // ================= DUMMY DATA =================
     // Later DB se ye data aa jayega
     const historyData = [
@@ -276,193 +277,202 @@ function History() {
         historyData.slice(startIndex, endIndex);
 
     return (
+        <>
+            <div className="layout">
 
-        <div className="layout">
-
-            {/* ================= SIDEBAR ================= */}
-            <Sidebar
-                isOpen={isSidebarOpen}
-                onClose={() => setIsSidebarOpen(false)}
-            />
-
-            {/* ================= MAIN ================= */}
-            <div className="main">
-
-                {/* MOBILE HEADER */}
-                <Header
-                    onMenuClick={() => setIsSidebarOpen(true)}
+                {/* ================= SIDEBAR ================= */}
+                <Sidebar
+                    isOpen={isSidebarOpen}
+                    onClose={() => setIsSidebarOpen(false)}
                 />
 
-                {/* ================= PAGE ================= */}
-                <div className="history-page">
+                {/* ================= MAIN ================= */}
+                <div className="main">
 
-                    <h1 className="history-title">
-                        History
-                    </h1>
+                    {/* MOBILE HEADER */}
+                    <Header
+                        onMenuClick={() => setIsSidebarOpen(true)}
+                        onSettingsClick={() => setShowSettings(true)}
+                    />
 
-                    {/* ================= TABLE ================= */}
-                    <div className="history-table-wrapper">
+                    {/* ================= PAGE ================= */}
+                    <div className="history-page">
 
-                        <table className="history-table">
+                        <h1 className="history-title">
+                            History
+                        </h1>
 
-                            <thead>
+                        {/* ================= TABLE ================= */}
+                        <div className="history-table-wrapper">
 
-                                <tr>
-                                    <th>Players</th>
-                                    <th>Result</th>
-                                    <th>Game</th>
-                                    <th>Date</th>
-                                </tr>
+                            <table className="history-table">
 
-                            </thead>
+                                <thead>
 
-                            <tbody>
+                                    <tr>
+                                        <th>Players</th>
+                                        <th>Result</th>
+                                        <th>Game</th>
+                                        <th>Date</th>
+                                    </tr>
 
-                                {
-                                    currentItems.map((match) => (
+                                </thead>
 
-                                        <tr key={match.id}>
+                                <tbody>
 
-                                            {/* PLAYERS */}
-                                            <td>
+                                    {
+                                        currentItems.map((match) => (
 
-                                                <div className="players-column">
+                                            <tr key={match.id}>
 
-                                                    <div className="player-row">
+                                                {/* PLAYERS */}
+                                                <td>
 
-                                                        <span className="player-name">
-                                                            {match.user.name}
-                                                        </span>
+                                                    <div className="players-column">
 
-                                                        <span className="rating">
-                                                            ({match.user.rating})
-                                                        </span>
+                                                        <div className="player-row">
 
-                                                        <span className="flag">
-                                                            {match.user.flag}
-                                                        </span>
+                                                            <span className="player-name">
+                                                                {match.user.name}
+                                                            </span>
+
+                                                            <span className="rating">
+                                                                ({match.user.rating})
+                                                            </span>
+
+                                                            <span className="flag">
+                                                                {match.user.flag}
+                                                            </span>
+
+                                                        </div>
+
+                                                        <div className="player-row opponent">
+
+                                                            <span className="player-name">
+                                                                {match.opponent.name}
+                                                            </span>
+
+                                                            <span className="rating">
+                                                                ({match.opponent.rating})
+                                                            </span>
+
+                                                        </div>
 
                                                     </div>
 
-                                                    <div className="player-row opponent">
+                                                </td>
 
-                                                        <span className="player-name">
-                                                            {match.opponent.name}
-                                                        </span>
+                                                {/* RESULT */}
+                                                <td>
 
-                                                        <span className="rating">
-                                                            ({match.opponent.rating})
-                                                        </span>
+                                                    <div className="result-column">
+
+                                                        <div className="score-box winner">
+                                                            {match.userScore}
+                                                        </div>
+
+                                                        <div className="score-box loser">
+                                                            {match.opponentScore}
+                                                        </div>
 
                                                     </div>
 
-                                                </div>
+                                                </td>
 
-                                            </td>
+                                                {/* GAME */}
+                                                <td>
 
-                                            {/* RESULT */}
-                                            <td>
+                                                    <span className="game-name">
+                                                        {match.game}
+                                                    </span>
 
-                                                <div className="result-column">
+                                                </td>
 
-                                                    <div className="score-box winner">
-                                                        {match.userScore}
-                                                    </div>
+                                                {/* DATE */}
+                                                <td>
 
-                                                    <div className="score-box loser">
-                                                        {match.opponentScore}
-                                                    </div>
+                                                    <span className="date-text">
+                                                        {match.createdAt}
+                                                    </span>
 
-                                                </div>
+                                                </td>
 
-                                            </td>
-
-                                            {/* GAME */}
-                                            <td>
-
-                                                <span className="game-name">
-                                                    {match.game}
-                                                </span>
-
-                                            </td>
-
-                                            {/* DATE */}
-                                            <td>
-
-                                                <span className="date-text">
-                                                    {match.createdAt}
-                                                </span>
-
-                                            </td>
-
-                                        </tr>
-                                    ))
-                                }
-
-                            </tbody>
-
-                        </table>
-
-                        {/* ================= PAGINATION ================= */}
-                        <div className="pagination">
-
-                            {/* LEFT */}
-                            <div className="page-size">
-
-                                <span>
-                                    Items per page:
-                                </span>
-
-                                <select
-                                    value={itemsPerPage}
-                                    onChange={(e) => {
-                                        setItemsPerPage(Number(e.target.value));
-                                        setCurrentPage(1);
-                                    }}
-                                >
-
-                                    <option value={5}>5</option>
-                                    <option value={10}>10</option>
-                                    <option value={20}>20</option>
-                                    <option value={30}>30</option>
-
-                                </select>
-                            </div>
-
-                            {/* CENTER */}
-                            <div className="page-info">
-                                <span>{startIndex + 1}</span>
-                                <span>{"-"}</span>
-                                <span>{Math.min(endIndex, totalItems)}</span>
-                                <span>{"of"}</span>
-                                <span>{totalItems}</span>
-                            </div>
-
-                            {/* RIGHT */}
-                            <div className="page-buttons">
-                                <button
-                                    disabled={currentPage === 1}
-                                    onClick={() =>
-                                        setCurrentPage(prev => prev - 1)
+                                            </tr>
+                                        ))
                                     }
-                                >
-                                    ❮
-                                </button>
 
-                                <button
-                                    disabled={currentPage === totalPages}
-                                    onClick={() =>
-                                        setCurrentPage(prev => prev + 1)
-                                    }
-                                >
-                                    ❯
-                                </button>
+                                </tbody>
+
+                            </table>
+
+                            {/* ================= PAGINATION ================= */}
+                            <div className="pagination">
+
+                                {/* LEFT */}
+                                <div className="page-size">
+
+                                    <span>
+                                        Items per page:
+                                    </span>
+
+                                    <select
+                                        value={itemsPerPage}
+                                        onChange={(e) => {
+                                            setItemsPerPage(Number(e.target.value));
+                                            setCurrentPage(1);
+                                        }}
+                                    >
+
+                                        <option value={5}>5</option>
+                                        <option value={10}>10</option>
+                                        <option value={20}>20</option>
+                                        <option value={30}>30</option>
+
+                                    </select>
+                                </div>
+
+                                {/* CENTER */}
+                                <div className="page-info">
+                                    <span>{startIndex + 1}</span>
+                                    <span>{"-"}</span>
+                                    <span>{Math.min(endIndex, totalItems)}</span>
+                                    <span>{"of"}</span>
+                                    <span>{totalItems}</span>
+                                </div>
+
+                                {/* RIGHT */}
+                                <div className="page-buttons">
+                                    <button
+                                        disabled={currentPage === 1}
+                                        onClick={() =>
+                                            setCurrentPage(prev => prev - 1)
+                                        }
+                                    >
+                                        ❮
+                                    </button>
+
+                                    <button
+                                        disabled={currentPage === totalPages}
+                                        onClick={() =>
+                                            setCurrentPage(prev => prev + 1)
+                                        }
+                                    >
+                                        ❯
+                                    </button>
+                                </div>
                             </div>
                         </div>
                     </div>
                 </div>
             </div>
-        </div>
+            {
+                showSettings && (
+                    <SettingsModal
+                        onClose={() => setShowSettings(false)}
+                    />
+                )
+            }
+        </>
     );
 }
 

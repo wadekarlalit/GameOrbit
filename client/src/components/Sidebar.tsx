@@ -6,6 +6,7 @@ import AuthModal from "./AuthModal";
 import { useLocation, useNavigate } from "react-router-dom";
 import GameSelectionModal from "./GameSelectionModal";
 import SettingsModal from "./SettingsModal";
+import LoginRequiredModal from "./LoginRequiredModal";
 
 type Props = {
     isOpen: boolean;
@@ -18,21 +19,17 @@ function Sidebar({ isOpen, onClose }: Props) {
     const dropdownRef = useRef<HTMLDivElement>(null);
     const navigate = useNavigate();
     const location = useLocation();
-
     const { logout, login } = useAuth();
-
     const [showLoginModal, setShowLoginModal] = useState(false);
     const [showAuth, setShowAuth] = useState(false);
     const storedUser = localStorage.getItem("user");
     const user = storedUser ? JSON.parse(storedUser) : null;
+    const [showGameSelector, setShowGameSelector] = useState(false);
+    const [selectedMode, setSelectedMode] = useState<"bot" | "friend" | "online">("bot");
+    const [showSettings, setShowSettings] = useState(false);
 
-    const [showGameSelector, setShowGameSelector] =
-        useState(false);
-    const [selectedMode, setSelectedMode] =
-        useState<"bot" | "friend" | "online">("bot");
-
-    const [showSettings, setShowSettings] =
-        useState(false);
+    const [showLoginRequired, setShowLoginRequired] = useState(false);
+    const [pendingRoute, setPendingRoute] = useState<string | null>(null);
 
     useEffect(() => {
         function handleClickOutside(e: MouseEvent) {
@@ -44,6 +41,42 @@ function Sidebar({ isOpen, onClose }: Props) {
         document.addEventListener("mousedown", handleClickOutside);
         return () => document.removeEventListener("mousedown", handleClickOutside);
     }, []);
+
+    function handleProtectedNavigation(route: string) {
+
+        if (!user) {
+
+            setPendingRoute(route);
+
+            setShowLoginRequired(true);
+
+            return;
+        }
+
+        onClose();
+
+        navigate(route);
+    }
+
+    function handleProtectedGameMode(
+        mode: "bot" | "friend" | "online"
+    ) {
+
+        if (!user) {
+
+            setPendingRoute("game-selector");
+
+            setSelectedMode(mode);
+
+            setShowLoginRequired(true);
+
+            return;
+        }
+
+        setSelectedMode(mode);
+
+        setShowGameSelector(true);
+    }
 
     console.log("storedUser:", storedUser);
     console.log("type:", typeof storedUser);
@@ -132,8 +165,9 @@ function Sidebar({ isOpen, onClose }: Props) {
 
                     <li className={location.pathname === "/chat" ? "active" : ""}
                         onClick={() => {
-                            onClose();
-                            navigate("/chat")
+                            handleProtectedNavigation("/chat")
+                            // onClose();
+                            // navigate("/chat")
                         }}>
                         <MessageCircle />
                         Messaging
@@ -141,8 +175,9 @@ function Sidebar({ isOpen, onClose }: Props) {
 
                     <li className={location.pathname === "/friends" ? "active" : ""}
                         onClick={() => {
-                            onClose();
-                            navigate("/friends")
+                            handleProtectedNavigation("/friends")
+                            // onClose();
+                            // navigate("/friends")
                         }}>
                         <Users />
                         Friends
@@ -150,8 +185,9 @@ function Sidebar({ isOpen, onClose }: Props) {
 
                     <li className={location.pathname === "/history" ? "active" : ""}
                         onClick={() => {
-                            onClose();
-                            navigate("/history")
+                            handleProtectedNavigation("/history")
+                            // onClose();
+                            // navigate("/history")
                         }}>
                         <History />
                         History
@@ -168,8 +204,9 @@ function Sidebar({ isOpen, onClose }: Props) {
                     <ul>
                         <li
                             onClick={() => {
-                                setSelectedMode("bot");
-                                setShowGameSelector(true);
+                                // setSelectedMode("bot");
+                                // setShowGameSelector(true);
+                                handleProtectedGameMode("bot")
                             }}
                         >
                             🤖 Play with robot
@@ -177,8 +214,9 @@ function Sidebar({ isOpen, onClose }: Props) {
 
                         <li
                             onClick={() => {
-                                setSelectedMode("friend");
-                                setShowGameSelector(true);
+                                // setSelectedMode("friend");
+                                // setShowGameSelector(true);
+                                handleProtectedGameMode("friend")
                             }}
                         >
                             👥 Play with a friend
@@ -186,8 +224,9 @@ function Sidebar({ isOpen, onClose }: Props) {
 
                         <li
                             onClick={() => {
-                                setSelectedMode("online");
-                                setShowGameSelector(true);
+                                // setSelectedMode("online");
+                                // setShowGameSelector(true);
+                                handleProtectedGameMode("online")
                             }}
                         >
                             🌐 Play Online
@@ -317,8 +356,31 @@ function Sidebar({ isOpen, onClose }: Props) {
                 showAuth && (
                     <AuthModal
                         type="login"
-                        onClose={() => setShowAuth(false)}
-                        onLogin={() => window.location.reload()}
+
+                        onClose={() =>
+                            setShowAuth(false)
+                        }
+
+                        onLogin={() => {
+
+                            setShowAuth(false);
+
+                            if (pendingRoute === "game-selector") {
+
+                                setShowGameSelector(true);
+
+                                setPendingRoute(null);
+
+                                return;
+                            }
+
+                            if (pendingRoute) {
+
+                                navigate(pendingRoute);
+
+                                setPendingRoute(null);
+                            }
+                        }}
                     />
                 )
             }
@@ -340,6 +402,25 @@ function Sidebar({ isOpen, onClose }: Props) {
                         onClose={() =>
                             setShowSettings(false)
                         }
+                    />
+                )
+            }
+
+            {
+                showLoginRequired && (
+
+                    <LoginRequiredModal
+
+                        onClose={() =>
+                            setShowLoginRequired(false)
+                        }
+
+                        onLogin={() => {
+
+                            setShowLoginRequired(false);
+
+                            setShowAuth(true);
+                        }}
                     />
                 )
             }
