@@ -11,18 +11,42 @@ import battleships from "../assets/battleships.png";
 import connect4 from "../assets/connect4.png";
 import checkers from "../assets/checkers.png";
 import "../styles/global.scss";
+import SettingsModal from "../components/SettingsModal";
+import AuthModal from "../components/AuthModal";
+import LoginRequiredModal from "../components/LoginRequiredModal";
 
 function Dashboard() {
     const [showModal, setShowModal] = useState(false);
     const navigate = useNavigate();
     const [isSidebarOpen, setIsSidebarOpen] = useState(false);
+    const [showSettings, setShowSettings] = useState(false);
+    const [showLoginRequired, setShowLoginRequired] = useState(false);
+    const [showAuth, setShowAuth] = useState(false);
+    const [pendingAction, setPendingAction] = useState<string | null>(null);
 
     function handleModeSelect(mode: string) {
         setShowModal(false);
-
         navigate(`/game/tic-tac-toe?mode=${mode}`)
     }
-    console.log("showModal", showModal)
+
+    function handleGameCardClick() {
+
+        const storedUser =
+            localStorage.getItem("user");
+
+        if (!storedUser) {
+
+            setPendingAction("open-game-mode");
+
+            setShowLoginRequired(true);
+
+            return;
+        }
+
+        setShowModal(true);
+    }
+    // console.log("showModal", showModal)
+
     return (
         <>
             <div className="layout">
@@ -38,7 +62,7 @@ function Dashboard() {
                 {/* ✅ Main Content */}
                 <div className="main">
                     <div className="">
-                        <Header onMenuClick={() => setIsSidebarOpen(true)} />
+                        <Header onMenuClick={() => setIsSidebarOpen(true)} onSettingsClick={() => setShowSettings(true)} />
                     </div>
                     <div className="content">
 
@@ -47,8 +71,9 @@ function Dashboard() {
                         <div className="games-grid">
                             <GameCard
                                 title="Tic Tac Toe"
-                                onClick={() => setShowModal(true)}
                                 image={ticTacToe}
+                                // onClick={() => setShowModal(true)}
+                                onClick={handleGameCardClick}
                             />
                         </div>
 
@@ -76,6 +101,63 @@ function Dashboard() {
                     onClose={() => setShowModal(false)}
                 />
             )}
+
+            {
+                showSettings && (
+                    <SettingsModal
+                        onClose={() => setShowSettings(false)}
+                    />
+                )
+            }
+
+            {
+                showLoginRequired && (
+
+                    <LoginRequiredModal
+
+                        onClose={() =>
+                            setShowLoginRequired(false)
+                        }
+
+                        onLogin={() => {
+
+                            setShowLoginRequired(false);
+
+                            setShowAuth(true);
+                        }}
+                    />
+                )
+            }
+
+            {
+                showAuth && (
+
+                    <AuthModal
+                        type="login"
+
+                        onClose={() =>
+                            setShowAuth(false)
+                        }
+
+                        onLogin={() => {
+
+                            setShowAuth(false);
+
+                            if (
+                                pendingAction ===
+                                "open-game-mode"
+                            ) {
+
+                                setShowModal(true);
+
+                                setPendingAction(null);
+
+                                return;
+                            }
+                        }}
+                    />
+                )
+            }
         </>
     )
 }

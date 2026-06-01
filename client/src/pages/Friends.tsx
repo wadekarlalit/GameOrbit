@@ -15,12 +15,12 @@ import {
     Copy,
     History
 } from "lucide-react";
+import SettingsModal from "../components/SettingsModal";
 
 function Friends() {
-
     const navigate = useNavigate();
-
     const [isSidebarOpen, setIsSidebarOpen] = useState(false);
+    const [showSettings, setShowSettings] = useState(false);
 
     const friends = [
         {
@@ -47,125 +47,128 @@ function Friends() {
     ];
 
     return (
+        <>
+            <div className="layout">
 
-        <div className="layout">
-
-            {/* ================= SIDEBAR ================= */}
-            <Sidebar
-                isOpen={isSidebarOpen}
-                onClose={() => setIsSidebarOpen(false)}
-            />
-
-            {/* ================= MAIN ================= */}
-            <div className="main">
-
-                {/* MOBILE HEADER */}
-                <Header
-                    onMenuClick={() => setIsSidebarOpen(true)}
+                {/* ================= SIDEBAR ================= */}
+                <Sidebar
+                    isOpen={isSidebarOpen}
+                    onClose={() => setIsSidebarOpen(false)}
                 />
 
-                <div className="friends-page">
+                {/* ================= MAIN ================= */}
+                <div className="main">
 
-                    {/* TOP NOTICE */}
-                    <div className="pending-box">
-                        No pending invitations.
-                    </div>
+                    {/* MOBILE HEADER */}
+                    <Header
+                        onMenuClick={() => setIsSidebarOpen(true)}
+                        onSettingsClick={() => setShowSettings(true)}
+                    />
 
-                    {/* FRIENDS CARD */}
-                    <div className="friends-card">
+                    <div className="friends-page">
 
-                        <h2>Friends</h2>
+                        {/* TOP NOTICE */}
+                        <div className="pending-box">
+                            No pending invitations.
+                        </div>
 
-                        <div className="friends-list">
+                        {/* FRIENDS CARD */}
+                        <div className="friends-card">
 
-                            {
-                                friends.map((friend) => (
+                            <h2>Friends</h2>
 
-                                    <div
-                                        className="friend-row"
-                                        key={friend.id}
-                                    >
+                            <div className="friends-list">
 
-                                        {/* LEFT */}
-                                        <div className="friend-left">
+                                {
+                                    friends.map((friend) => (
 
-                                            <div className="friend-avatar">
-                                                {friend.avatar}
+                                        <div
+                                            className="friend-row"
+                                            key={friend.id}
+                                        >
+
+                                            {/* LEFT */}
+                                            <div className="friend-left">
+
+                                                <div className="friend-avatar">
+                                                    {friend.avatar}
+                                                </div>
+
+                                                <div className="friend-info">
+
+                                                    <h3>
+                                                        {friend.name}
+
+                                                        <span>
+                                                            {friend.flag}
+                                                        </span>
+                                                    </h3>
+
+                                                    <p>
+                                                        {friend.lastSeen}
+                                                    </p>
+
+                                                </div>
+
                                             </div>
 
-                                            <div className="friend-info">
+                                            {/* RIGHT */}
+                                            <div className="friend-actions">
 
-                                                <h3>
-                                                    {friend.name}
-
-                                                    <span>
-                                                        {friend.flag}
-                                                    </span>
-                                                </h3>
-
-                                                <p>
-                                                    {friend.lastSeen}
-                                                </p>
-
-                                            </div>
-
-                                        </div>
-
-                                        {/* RIGHT */}
-                                        <div className="friend-actions">
-
-                                            <button
-                                                className="challenge-btn"
-                                            >
-                                                <Sword size={18} />
-                                                Challenge
-                                            </button>
-
-                                            <button
-                                                className="message-btn"
-                                                onClick={() => navigate("/chat")}
-                                            >
-                                                <MessageCircle size={18} />
-                                                Send message
-                                            </button>
-
-                                            {/* DROPDOWN */}
-                                            <div className="menu-wrapper">
-
-                                                <button className="menu-btn">
-                                                    <MoreVertical size={20} />
+                                                <button
+                                                    className="challenge-btn"
+                                                >
+                                                    <Sword size={18} />
+                                                    Challenge
                                                 </button>
 
-                                                <div className="dropdown-menu">
+                                                <button
+                                                    className="message-btn"
+                                                    onClick={() => navigate("/chat")}
+                                                >
+                                                    <MessageCircle size={18} />
+                                                    Send message
+                                                </button>
 
-                                                    <div className="dropdown-item">
-                                                        <MessageCircle size={17} />
-                                                        Send message
-                                                    </div>
+                                                {/* DROPDOWN */}
+                                                <div className="menu-wrapper">
 
-                                                    <div className="dropdown-item">
-                                                        <Sword size={17} />
-                                                        Challenge
-                                                    </div>
+                                                    <button className="menu-btn">
+                                                        <MoreVertical size={20} />
+                                                    </button>
 
-                                                    <div className="dropdown-item">
-                                                        <History size={17} />
-                                                        History
-                                                    </div>
+                                                    <div className="dropdown-menu">
 
-                                                    <div className="dropdown-item danger">
-                                                        <ShieldBan size={17} />
-                                                        Block
-                                                    </div>
+                                                        <div className="dropdown-item">
+                                                            <MessageCircle size={17} />
+                                                            Send message
+                                                        </div>
 
-                                                    <div className="dropdown-item danger">
-                                                        <Flag size={17} />
-                                                        Report
-                                                    </div>
+                                                        <div className="dropdown-item">
+                                                            <Sword size={17} />
+                                                            Challenge
+                                                        </div>
 
-                                                    <div className="dropdown-item">
-                                                        <Copy size={17} />
-                                                        Copy ID
+                                                        <div className="dropdown-item">
+                                                            <History size={17} />
+                                                            History
+                                                        </div>
+
+                                                        <div className="dropdown-item danger">
+                                                            <ShieldBan size={17} />
+                                                            Block
+                                                        </div>
+
+                                                        <div className="dropdown-item danger">
+                                                            <Flag size={17} />
+                                                            Report
+                                                        </div>
+
+                                                        <div className="dropdown-item">
+                                                            <Copy size={17} />
+                                                            Copy ID
+                                                        </div>
+
                                                     </div>
 
                                                 </div>
@@ -173,10 +176,10 @@ function Friends() {
                                             </div>
 
                                         </div>
+                                    ))
+                                }
 
-                                    </div>
-                                ))
-                            }
+                            </div>
 
                         </div>
 
@@ -186,7 +189,14 @@ function Friends() {
 
             </div>
 
-        </div>
+            {
+                showSettings && (
+                    <SettingsModal
+                        onClose={() => setShowSettings(false)}
+                    />
+                )
+            }
+        </>
     );
 }
 

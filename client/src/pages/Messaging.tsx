@@ -65,65 +65,68 @@ import Sidebar from "../components/Sidebar";
 import Header from "../components/Header";
 import "../styles/messaging.scss";
 import { useState } from "react";
+import SettingsModal from "../components/SettingsModal";
 
 function Messaging() {
-
     const [isSidebarOpen, setIsSidebarOpen] = useState(false);
+    const [showSettings, setShowSettings] = useState(false);
 
     return (
-
-        <div className="layout">
-
-            {/* ✅ Sidebar */}
-            <Sidebar
-                isOpen={isSidebarOpen}
-                onClose={() => setIsSidebarOpen(false)}
-            />
-
-            {/* ✅ Main */}
-            <div className="main">
-
-                {/* ✅ Mobile Header */}
-                <Header
-                    onMenuClick={() => setIsSidebarOpen(true)}
+        <>
+            <div className="layout">
+                {/* ✅ Sidebar */}
+                <Sidebar
+                    isOpen={isSidebarOpen}
+                    onClose={() => setIsSidebarOpen(false)}
                 />
 
-                {/* ✅ Messaging Content */}
-                <div className="messaging-page">
+                {/* ✅ Main */}
+                <div className="main">
 
-                    <div className="messages-sidebar">
+                    {/* ✅ Mobile Header */}
+                    <Header
+                        onMenuClick={() => setIsSidebarOpen(true)}
+                        onSettingsClick={() => setShowSettings(true)}
+                    />
 
-                        <div className="messages-title">
-                            Messages
-                        </div>
+                    {/* ✅ Messaging Content */}
+                    <div className="messaging-page">
 
-                        <div className="empty-messages">
-                            No messages
-                        </div>
+                        <div className="messages-sidebar">
 
-                    </div>
-
-                    <div className="chat-preview">
-
-                        <div className="chat-preview-content">
-
-                            <div className="chat-icon">
-                                💬
+                            <div className="messages-title">
+                                Messages
                             </div>
 
-                            <h2>
-                                Add friends to start chatting!
-                            </h2>
+                            <div className="empty-messages">
+                                No messages
+                            </div>
 
-                            <p>
-                                Invite your friends or browse our
-                                community and send friend requests
-                                to make new connections.
-                            </p>
+                        </div>
 
-                            <button className="browse-btn">
-                                Browse Friends
-                            </button>
+                        <div className="chat-preview">
+
+                            <div className="chat-preview-content">
+
+                                <div className="chat-icon">
+                                    💬
+                                </div>
+
+                                <h2>
+                                    Add friends to start chatting!
+                                </h2>
+
+                                <p>
+                                    Invite your friends or browse our
+                                    community and send friend requests
+                                    to make new connections.
+                                </p>
+
+                                <button className="browse-btn">
+                                    Browse Friends
+                                </button>
+
+                            </div>
 
                         </div>
 
@@ -132,8 +135,14 @@ function Messaging() {
                 </div>
 
             </div>
-
-        </div>
+            {
+                showSettings && (
+                    <SettingsModal
+                        onClose={() => setShowSettings(false)}
+                    />
+                )
+            }
+        </>
     );
 }
 
